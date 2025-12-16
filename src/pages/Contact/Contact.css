@@ -1,0 +1,137 @@
+.contact-page {
+    padding-top: 8rem;
+    background-color: var(--light-gray);
+    min-height: 100vh;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+/* Info Cards */
+.contact-info-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.info-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    transition: var(--transition-normal);
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-red), var(--primary-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.5rem;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 5px 15px rgba(211, 47, 47, 0.3);
+}
+
+.info-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--black);
+}
+
+.info-card p {
+    color: var(--gray);
+    line-height: 1.6;
+}
+
+.info-card a {
+    color: var(--gray);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.info-card a:hover {
+    color: var(--primary-red);
+}
+
+/* Contact Form & Map */
+.contact-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.contact-form-section {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+}
+
+.contact-form-section h2 {
+    margin-bottom: 2rem;
+    color: var(--primary-dark);
+}
+
+.form-group-half {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.contact-form .btn {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+/* Map Section */
+.map-section {
+    height: 100%;
+    min-height: 500px;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 4px solid var(--white);
+}
+
+.map-frame {
+    width: 100%;
+    height: 100%;
+    background: #e0e0e0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .contact-content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .map-section {
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-group-half {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .contact-page {
+        padding-top: 6rem;
+    }
+}

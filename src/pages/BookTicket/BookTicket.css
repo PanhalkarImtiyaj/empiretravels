@@ -1,0 +1,419 @@
+.book-ticket-page {
+    padding-top: 2rem;
+    background-color: var(--light-gray);
+    min-height: 100vh;
+}
+
+.booking-layout {
+    display: flex;
+    gap: 2rem;
+    margin-top: 6rem;
+    /* Account for fixed header */
+}
+
+/* Sidebar Filters */
+.filters-sidebar {
+    width: 280px;
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--light-gray);
+    padding-bottom: 0.5rem;
+}
+
+.clear-filters {
+    color: var(--primary-red);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.filter-group {
+    margin-bottom: 2rem;
+}
+
+.filter-group h4 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--dark-gray);
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    color: var(--gray);
+    font-size: 0.95rem;
+}
+
+/* Bus Results */
+.bus-results {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.search-summary {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.search-summary h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+    color: var(--black);
+}
+
+.search-summary p {
+    color: var(--gray);
+    margin: 0;
+}
+
+/* Bus Card */
+.bus-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+    border: 1px solid transparent;
+}
+
+.bus-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(211, 47, 47, 0.1);
+}
+
+.bus-card-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.bus-info-main {
+    flex: 2;
+    min-width: 200px;
+}
+
+.bus-operator {
+    font-size: 1.25rem;
+    color: var(--black);
+    margin-bottom: 0.25rem;
+}
+
+.bus-type {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin-bottom: 0.75rem;
+}
+
+.bus-amenities {
+    display: flex;
+    gap: 0.75rem;
+    color: var(--gray);
+}
+
+.bus-schedule {
+    flex: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    min-width: 250px;
+}
+
+.time-col {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.time {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--black);
+}
+
+.city {
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+.duration-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.duration-line {
+    width: 100px;
+    height: 2px;
+    background: var(--light-gray);
+    position: relative;
+}
+
+.duration-line::before,
+.duration-line::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gray);
+    top: -2px;
+}
+
+.duration-line::before {
+    left: 0;
+}
+
+.duration-line::after {
+    right: 0;
+}
+
+.duration-text {
+    font-size: 0.8rem;
+    color: var(--gray);
+}
+
+.bus-price-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    min-width: 150px;
+}
+
+.bus-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 0.25rem;
+}
+
+.seats-left {
+    font-size: 0.85rem;
+    color: var(--success);
+    margin-bottom: 1rem;
+}
+
+.select-btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* Seat Selection Area */
+.seat-selection-area {
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-top: 1px dashed var(--light-gray);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+.seat-legend {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+.seat-box {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+
+.seat-box.available {
+    background: var(--white);
+}
+
+.seat-box.selected {
+    background: var(--success);
+    border-color: var(--success);
+}
+
+.seat-box.booked {
+    background: var(--gray);
+    border-color: var(--gray);
+}
+
+.seat-box.female {
+    background: #ff4081;
+    border-color: #ff4081;
+}
+
+.bus-layout {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.deck {
+    background: var(--white);
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--radius-md);
+    min-width: 150px;
+}
+
+.deck h5 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--dark-gray);
+}
+
+.seats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.seat {
+    width: 40px;
+    height: 60px;
+    /* Sleeper shape */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: var(--white);
+    transition: all 0.2s;
+    position: relative;
+}
+
+.seat.selected {
+    background: var(--success);
+    color: var(--white);
+    border-color: var(--success);
+}
+
+.seat:hover:not(.selected) {
+    border-color: var(--primary-red);
+    transform: scale(1.05);
+}
+
+.seat-icon {
+    font-size: 0.8rem;
+}
+
+.booking-summary {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.booking-summary p {
+    font-size: 1.1rem;
+    color: var(--black);
+}
+
+.booking-summary p strong {
+    margin-left: 0.5rem;
+    color: var(--primary-red);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .booking-layout {
+        flex-direction: column;
+        margin-top: 9rem;
+        /* Increased to prevent header overlap */
+    }
+
+    .filters-sidebar {
+        width: 100%;
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .bus-card-content {
+        flex-direction: column;
+    }
+
+    .bus-schedule {
+        order: 2;
+        padding: 1rem 0;
+        border-top: 1px dashed var(--light-gray);
+        border-bottom: 1px dashed var(--light-gray);
+        width: 100%;
+    }
+
+    .bus-price-col {
+        order: 3;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .bus-info-main {
+        order: 1;
+    }
+
+    .booking-summary {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Mobile Seat Layout - Proper Spacing & Sizing */
+    .bus-layout {
+        gap: 1.5rem;
+    }
+
+    .deck {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        padding: 1rem 0.5rem;
+    }
+
+    .seats-grid {
+        gap: 0.75rem;
+        justify-items: center;
+    }
+
+    .seat {
+        width: 100%;
+        max-width: 50px;
+        height: 75px;
+        /* Proper Sleeper Dimensions */
+    }
+}
