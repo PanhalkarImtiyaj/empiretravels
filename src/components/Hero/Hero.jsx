@@ -121,7 +121,7 @@ const Hero = () => {
                                         <span className="offer-label">Limited Time Deal</span>
                                         <h3 className="offer-value">15% OFF</h3>
                                         <p className="offer-desc">on your first booking</p>
-                                        <div className="offer-code">Use Code: <strong>FIRST15</strong></div>
+                                        <div className="offer-code"><strong>FIRST15</strong></div>
                                     </div>
                                     <div className="offer-shine"></div>
                                 </div>
