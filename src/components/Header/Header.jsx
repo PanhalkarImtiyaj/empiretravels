@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BiBus, BiMenu, BiX, BiPhoneCall, BiUser, BiStar, BiLogoWhatsapp, BiHome, BiListUl, BiInfoCircle } from 'react-icons/bi';
+import { BiBus, BiMenu, BiX, BiPhoneCall, BiUser, BiStar, BiLogoWhatsapp, BiHome, BiListUl, BiInfoCircle, BiEnvelope, BiImage } from 'react-icons/bi';
+import logoImage from '../../assets/images/logo-bus.png';
 import './Header.css';
 
 const Header = () => {
@@ -20,6 +21,7 @@ const Header = () => {
   const navLinks = [
     { path: '/', label: 'Home', icon: <BiHome /> },
     { path: '/book-ticket', label: 'Book Ticket', icon: <BiBus /> },
+    { path: '/gallery', label: 'Gallery', icon: <BiImage /> },
     { path: '/my-bookings', label: 'My Bookings', icon: <BiListUl /> },
     { path: '/about', label: 'About Us', icon: <BiInfoCircle /> },
     { path: '/contact', label: 'Contact', icon: <BiPhoneCall /> },
@@ -39,11 +41,16 @@ const Header = () => {
               <a href="tel:+919689116567" className="contact-item">
                 <BiPhoneCall />
                 <div className="contact-details">
-                  <span className="phone-number">+91 9689116567</span>
+                  <span className="phone-number">+91 968 911 6567</span>
                 </div>
               </a>
-              <a href="https://wa.me/919689116567" className="contact-item" target="_blank" rel="noopener noreferrer">
-                <BiLogoWhatsapp style={{ fontSize: '1.2rem', color: '#25D366' }} />
+              <a
+                href="https://wa.me/919689116567?text=Hello,%20I%20want%20to%20enquire%20about%20bus%20booking."
+                className="contact-item"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <BiLogoWhatsapp style={{ fontSize: '1.4rem' }} />
                 <div className="contact-details">
                   <span className="phone-number">WhatsApp</span>
                 </div>
@@ -65,7 +72,7 @@ const Header = () => {
           <div className="navbar-content">
             {/* Logo */}
             <Link to="/" className="logo">
-              <BiBus className="logo-icon" />
+              <img src={logoImage} alt="Empire Tours" className="logo-img" />
               <div className="logo-text">
                 <span className="logo-name">Empire tours and travels</span>
                 <span className="logo-tagline">Your Journey Partner</span>

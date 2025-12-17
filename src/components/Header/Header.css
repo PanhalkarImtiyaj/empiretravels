@@ -122,10 +122,34 @@
     transform: scale(1.05);
 }
 
+.logo-img {
+    height: 60px;
+    /* Reduced for desktop */
+    width: auto;
+    object-fit: contain;
+}
+
+/* WhatsApp Styling */
+a[href*="wa.me"] {
+    color: #4ceb84 !important;
+    /* WhatsApp Green Bright */
+    background: rgba(0, 0, 0, 0.2);
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+a[href*="wa.me"]:hover {
+    background: rgba(0, 0, 0, 0.3);
+    color: #ffffff !important;
+}
+
 .logo-icon {
     font-size: 2.5rem;
     color: var(--primary-red);
     filter: drop-shadow(2px 2px 4px rgba(211, 47, 47, 0.3));
+    display: none;
+    /* Hide old icon */
 }
 
 .logo-text {
@@ -295,6 +319,11 @@
     .user-actions .btn-icon {
         width: 100%;
         justify-content: center;
+    }
+
+    .logo-img {
+        height: 50px;
+        /* Slightly smaller for mobile if needed, but user said keep same. 60px might be too big for header */
     }
 
     .logo-icon {

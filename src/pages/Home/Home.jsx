@@ -1,12 +1,18 @@
 import Hero from '../../components/Hero/Hero';
-import Features from '../../components/Features/Features';
+import WhyChooseUs from '../../components/Features/Features';
+import Offers from '../../components/Offers/Offers';
 import './Home.css';
 
 const Home = () => {
     return (
         <div className="home-page">
             <Hero />
-            <Features />
+
+            {/* Offers Section */}
+            <Offers />
+
+            {/* Why Choose Us Section */}
+            <WhyChooseUs />
 
             {/* Popular Routes Section */}
             <section className="popular-routes section">

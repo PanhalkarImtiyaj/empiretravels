@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BiMap, BiCalendar, BiUser, BiSearch, BiCheck, BiShield, BiTimeFive, BiCalendarAlt, BiBus, BiStar, BiMapPin } from 'react-icons/bi';
+import { BiMap, BiCalendar, BiUser, BiSearch, BiCheck, BiShield, BiTimeFive, BiCalendarAlt, BiBus, BiStar, BiMapPin, BiTransfer } from 'react-icons/bi';
 import './Hero.css';
 
 // Import local slider images
@@ -7,14 +7,15 @@ import slide2 from '../../assets/slider_images/2.jpg';
 import slide3 from '../../assets/slider_images/3.jpg';
 import slide4 from '../../assets/slider_images/4.jpg';
 import slide5 from '../../assets/slider_images/5.jpg';
-// Import static mobile hero image
+// Import static hero images
 import mobileHeroImage from '../../assets/images/bus-hero-image.png';
+import desktopHeroImage from '../../assets/images/bus-hero-dekstop.png';
 
 const Hero = () => {
-    const [currentSlide, setCurrentSlide] = useState(0);
+    // const [currentSlide, setCurrentSlide] = useState(0); // Slider removed
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-    const slides = [slide2, slide3, slide4, slide5];
+    // const slides = [slide2, slide3, slide4, slide5]; // Slider removed
 
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -22,18 +23,11 @@ const Hero = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    useEffect(() => {
-        if (!isMobile) {
-            const interval = setInterval(() => {
-                setCurrentSlide((prev) => (prev + 1) % slides.length);
-            }, 5000);
-            return () => clearInterval(interval);
-        }
-    }, [isMobile]);
+    // Slider effect removed
 
     return (
         <section className="hero">
-            {/* Background Slider */}
+            {/* Background Image */}
             <div className="hero-slider">
                 {isMobile ? (
                     <div className="mobile-hero-wrapper">
@@ -75,55 +69,82 @@ const Hero = () => {
                         ></div>
                     </div>
                 ) : (
-                    slides.map((slide, index) => (
-                        <div
-                            key={index}
-                            className={`slide-item ${index === currentSlide ? 'active' : ''}`}
-                            style={{ backgroundImage: `url(${slide})` }}
-                        ></div>
-                    ))
+                    <div
+                        className="slide-item active slide-with-overlay"
+                        style={{ backgroundImage: `url(${desktopHeroImage})` }}
+                    ></div>
                 )}
             </div>
 
             <div className="hero-overlay"></div>
 
-            <div className="hero-content">
-                <div className="container">
-                    <div className="hero-text fade-in">
-                        <h1 className="hero-title">
-                            Book Your Bus Tickets
-                            <span className="highlight"> Instantly</span>
-                        </h1>
-                        <p className="hero-subtitle">
-                            Travel comfortably with our premium bus services.
-                            Safe, reliable, and affordable journeys across India.
-                        </p>
-                        <div className="hero-features">
-                            <div className="feature-badge">
-                                <span className="badge-icon"><BiCheck /></span>
-                                <span>15% Off on First Booking</span>
+            {isMobile && (
+                <div className="hero-content">
+                    <div className="container">
+                        <div className="hero-layout">
+                            {/* Left Side: Text & Actions */}
+                            <div className="hero-text-section fade-in">
+                                <h1 className="hero-title">
+                                    Book Your Bus Tickets
+                                    <span className="highlight"> Instantly</span>
+                                </h1>
+                                <p className="hero-subtitle">
+                                    Travel comfortably with our premium bus services.
+                                    Safe, reliable, and affordable journeys across India.
+                                </p>
+
+                                <div className="hero-buttons">
+                                    <button className="btn btn-primary btn-lg">Book Ticket Now</button>
+                                    <button className="btn btn-outline btn-lg">View Routes</button>
+                                </div>
+
+                                <div className="trust-badges-row">
+                                    <div className="trust-badge glass-badge">
+                                        <BiStar className="badge-icon-sm" />
+                                        <span>Trusted by 5,000+ Travelers</span>
+                                    </div>
+                                    <div className="trust-badge glass-badge">
+                                        <BiCheck className="badge-icon-sm" />
+                                        <span>24/7 Customer Support</span>
+                                    </div>
+                                    <div className="trust-badge glass-badge">
+                                        <BiShield className="badge-icon-sm" />
+                                        <span>Safe & Secure Payments</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="feature-badge">
-                                <span className="badge-icon"><BiCheck /></span>
-                                <span>24/7 Customer Support</span>
-                            </div>
-                            <div className="feature-badge">
-                                <span className="badge-icon"><BiCheck /></span>
-                                <span>Safe & Secure Payment</span>
+
+                            {/* Right Side: Floating Offer */}
+                            <div className="hero-offer-section slide-in-right">
+                                <div className="offer-card-floating">
+                                    <div className="offer-content">
+                                        <span className="offer-label">Limited Time Deal</span>
+                                        <h3 className="offer-value">15% OFF</h3>
+                                        <p className="offer-desc">on your first booking</p>
+                                        <div className="offer-code">Use Code: <strong>FIRST15</strong></div>
+                                    </div>
+                                    <div className="offer-shine"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            )}
 
             {/* Quick Search Form - Moved outside hero-content */}
             <div className="container">
-                <div className="search-card slide-in-right">
+                <div className="search-card">
+                    <div className="promo-badge">
+                        <span>FLAT</span>
+                        <span className="promo-amount">₹150 OFF</span>
+                    </div>
                     <h3 className="search-title">Find Your Bus</h3>
                     <div className="title-divider"></div>
 
                     <form className="search-form">
                         <div className="form-row">
+
+
                             <div className="form-group">
                                 <label htmlFor="from" className="field-label">FROM</label>
                                 <div className="input-wrapper">
@@ -136,6 +157,10 @@ const Hero = () => {
                                     />
                                 </div>
                             </div>
+
+                            <button type="button" className="swap-btn" title="Swap Cities">
+                                <BiTransfer />
+                            </button>
 
                             <div className="form-group">
                                 <label htmlFor="to" className="field-label">TO</label>

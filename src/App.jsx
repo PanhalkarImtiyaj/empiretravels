@@ -6,6 +6,7 @@ import Home from './pages/Home/Home';
 import BookTicket from './pages/BookTicket/BookTicket';
 import About from './pages/About/About';
 import Contact from './pages/Contact/Contact'; // Import Contact Page
+import Gallery from './pages/Gallery/Gallery';
 import ScrollToTop from './components/ScrollToTop';
 import './styles/global.css';
 
@@ -22,6 +23,7 @@ function App() {
             <Route path="/my-bookings" element={<ComingSoon page="My Bookings" />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/gallery" element={<Gallery />} />
           </Routes>
         </main>
         <Footer />

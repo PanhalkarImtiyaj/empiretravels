@@ -1,43 +1,31 @@
-import { FaShieldAlt, FaClock, FaHeadset, FaMoneyBillWave, FaWifi, FaSnowflake } from 'react-icons/fa';
+import { FaShieldAlt, FaClock, FaHeadset, FaBus } from 'react-icons/fa';
 import './Features.css';
 
-const Features = () => {
+const WhyChooseUs = () => {
     const features = [
         {
-            icon: <FaShieldAlt />,
-            title: 'Safe & Secure',
-            description: 'Your safety is our priority with GPS tracking and verified drivers',
-            color: '#4caf50'
+            icon: <FaBus />,
+            title: 'Modern Buses',
+            description: 'Experience travel in our latest fleet of AC Sleeper & Seater buses.',
+            color: '#f44336'
         },
         {
             icon: <FaClock />,
-            title: 'On-Time Service',
-            description: 'Punctual departures and arrivals for a hassle-free journey',
+            title: 'On-Time Guarantee',
+            description: 'Punctual departures and arrivals. We value your time.',
             color: '#2196f3'
+        },
+        {
+            icon: <FaShieldAlt />,
+            title: 'Secure Payments',
+            description: '100% secure payment gateways for hassle-free booking.',
+            color: '#4caf50'
         },
         {
             icon: <FaHeadset />,
             title: '24/7 Support',
-            description: 'Round-the-clock customer support for all your queries',
+            description: 'Round-the-clock customer support for all your queries.',
             color: '#ff9800'
-        },
-        {
-            icon: <FaMoneyBillWave />,
-            title: 'Best Prices',
-            description: 'Competitive fares with exclusive discounts and offers',
-            color: '#9c27b0'
-        },
-        {
-            icon: <FaWifi />,
-            title: 'Free WiFi',
-            description: 'Stay connected throughout your journey with complimentary WiFi',
-            color: '#00bcd4'
-        },
-        {
-            icon: <FaSnowflake />,
-            title: 'AC Comfort',
-            description: 'Travel in comfort with well-maintained air-conditioned buses',
-            color: '#f44336'
         }
     ];
 
@@ -69,4 +57,4 @@ const Features = () => {
     );
 };
 
-export default Features;
+export default WhyChooseUs;

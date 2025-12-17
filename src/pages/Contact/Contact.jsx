@@ -19,7 +19,7 @@ const Contact = () => {
                                 <FaMapMarkerAlt />
                             </div>
                             <h3>Our Office</h3>
-                            <p>123 Bus Terminal Road,<br />Mumbai, Maharashtra 400001</p>
+                            <p>Dabhade, Warananagar,<br />Maharashtra 416113</p>
                         </div>
 
                         <div className="info-card">
@@ -28,8 +28,7 @@ const Contact = () => {
                             </div>
                             <h3>Phone Number</h3>
                             <p>
-                                <a href="tel:+919876543210">+91 98765 43210</a><br />
-                                <a href="tel:+911234567890">+91 12345 67890</a>
+                                <a href="tel:+919689116567">+91 968 911 6567</a>
                             </p>
                         </div>
 
@@ -39,7 +38,6 @@ const Contact = () => {
                             </div>
                             <h3>Email Address</h3>
                             <p>
-                                <a href="mailto:support@bustravels.com">support@bustravels.com</a><br />
                                 <a href="mailto:info@bustravels.com">info@bustravels.com</a>
                             </p>
                         </div>
@@ -92,7 +90,7 @@ const Contact = () => {
                         <div className="map-section slide-in-right">
                             <div className="map-frame">
                                 <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.11609823277!2d72.74109995709657!3d19.08219783958221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1654321098765!5m2!1sen!2sin"
+                                    src="https://maps.google.com/maps?q=Dabhade, Warananagar, Maharashtra 416113&t=&z=13&ie=UTF8&iwloc=&output=embed"
                                     width="100%"
                                     height="100%"
                                     style={{ border: 0 }}
