@@ -56,12 +56,12 @@ const Header = () => {
                 </div>
               </a>
             </div>
-            <div className="user-actions">
+            {/* <div className="user-actions">
               <button className="btn-icon btn-enhanced">
                 <BiUser />
                 <span>Login / Register</span>
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

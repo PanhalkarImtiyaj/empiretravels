@@ -1,6 +1,6 @@
 .services-page {
-    padding-top: 12rem;
-    /* Increased to push content down below header */
+    padding-top: 16rem;
+    /* Increased further to prevent header overlap */
     padding-bottom: 4rem;
     min-height: 100vh;
     background-color: var(--white);
@@ -11,6 +11,10 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-bottom: 4rem;
+}
+
+.services-page .section-title {
+    padding-top: 6rem;
 }
 
 .service-card {
@@ -107,7 +111,7 @@
 
 @media (max-width: 768px) {
     .services-page {
-        padding-top: 10rem;
-        /* Increased for mobile */
+        padding-top: 13rem;
+        /* Increased further for mobile */
     }
 }
