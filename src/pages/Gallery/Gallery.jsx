@@ -95,7 +95,7 @@ const Gallery = () => {
                     {galleryImages.map((img, index) => (
                         <div
                             key={img.id}
-                            className="gallery-item fade-in"
+                            className="gallery-item"
                             onClick={() => openLightbox(index)}
                             style={{ animationDelay: `${index * 0.1}s` }}
                         >

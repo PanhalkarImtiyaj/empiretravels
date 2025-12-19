@@ -1,7 +1,47 @@
+import { useState } from 'react';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from 'react-icons/fa';
 import './Contact.css';
 
 const Contact = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        phone: '',
+        email: '',
+        subject: '',
+        message: ''
+    });
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        // Format the message for WhatsApp
+        const text = `*New Contact Inquiry*\n\n` +
+            `*Name:* ${formData.name}\n` +
+            `*Phone:* ${formData.phone}\n` +
+            `*Email:* ${formData.email}\n` +
+            `*Subject:* ${formData.subject}\n` +
+            `*Message:* ${formData.message}`;
+
+        // Create WhatsApp URL
+        const encodedText = encodeURIComponent(text);
+        const whatsappUrl = `https://wa.me/919689116567?text=${encodedText}`;
+
+        // Open in new tab
+        window.open(whatsappUrl, '_blank');
+
+        // Reset form
+        setFormData({
+            name: '',
+            phone: '',
+            email: '',
+            subject: '',
+            message: ''
+        });
+    };
     return (
         <div className="contact-page section">
             <div className="container">
@@ -55,31 +95,65 @@ const Contact = () => {
                     <div className="contact-content-grid">
                         <div className="contact-form-section slide-in-left">
                             <h2>Send us a Message</h2>
-                            <form className="contact-form">
+                            <form className="contact-form" onSubmit={handleSubmit}>
                                 <div className="form-group-half">
                                     <div className="input-group">
                                         <label>Your Name</label>
-                                        <input type="text" placeholder="John Doe" required />
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            value={formData.name}
+                                            onChange={handleChange}
+                                            placeholder="Enter your name"
+                                            required
+                                        />
                                     </div>
                                     <div className="input-group">
                                         <label>Phone Number</label>
-                                        <input type="tel" placeholder="+91 9876543210" required />
+                                        <input
+                                            type="tel"
+                                            name="phone"
+                                            value={formData.phone}
+                                            onChange={handleChange}
+                                            placeholder="Enter your phone number"
+                                            required
+                                        />
                                     </div>
                                 </div>
 
                                 <div className="input-group">
                                     <label>Email Address</label>
-                                    <input type="email" placeholder="john@example.com" required />
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        placeholder="Enter your email address"
+                                        required
+                                    />
                                 </div>
 
                                 <div className="input-group">
                                     <label>Subject</label>
-                                    <input type="text" placeholder="Regarding Ticket Booking..." />
+                                    <input
+                                        type="text"
+                                        name="subject"
+                                        value={formData.subject}
+                                        onChange={handleChange}
+                                        placeholder="Enter your subject"
+                                    />
                                 </div>
 
                                 <div className="input-group">
                                     <label>Message</label>
-                                    <textarea rows="5" placeholder="Write your message here..." required></textarea>
+                                    <textarea
+                                        rows="5"
+                                        name="message"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        placeholder="Enter your message here..."
+                                        required
+                                    ></textarea>
                                 </div>
 
                                 <button type="submit" className="btn btn-primary">Send Message</button>

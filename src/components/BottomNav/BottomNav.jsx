@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { BiHomeAlt, BiBus, BiListUl, BiInfoCircle, BiPhoneCall, BiImage } from 'react-icons/bi';
+import { BiHomeAlt, BiBus, BiPackage, BiInfoCircle, BiPhoneCall, BiImage, BiBriefcase } from 'react-icons/bi';
 import './BottomNav.css';
 
 const BottomNav = () => {
@@ -7,9 +7,9 @@ const BottomNav = () => {
 
     const navItems = [
         { path: '/', icon: BiHomeAlt, label: 'Home' },
-        { path: '/book-ticket', icon: BiBus, label: 'Book' },
+        { path: '/services', icon: BiBriefcase, label: 'Services' },
         { path: '/gallery', icon: BiImage, label: 'Gallery' },
-        { path: '/my-bookings', icon: BiListUl, label: 'Bookings' },
+        { path: '/packages', icon: BiPackage, label: 'Packages' },
         { path: '/about', icon: BiInfoCircle, label: 'About' },
         { path: '/contact', icon: BiPhoneCall, label: 'Contact' },
     ];

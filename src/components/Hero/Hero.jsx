@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BiMap, BiCalendar, BiUser, BiSearch, BiCheck, BiShield, BiTimeFive, BiCalendarAlt, BiBus, BiStar, BiMapPin, BiTransfer } from 'react-icons/bi';
+import { BiCheck, BiShield, BiStar, BiMapPin } from 'react-icons/bi';
 import './Hero.css';
 
 // Import local slider images
@@ -131,96 +131,6 @@ const Hero = () => {
                 </div>
             )}
 
-            {/* Quick Search Form - Moved outside hero-content */}
-            <div className="container">
-                <div className="search-card">
-                    <div className="promo-badge">
-                        <span>FLAT</span>
-                        <span className="promo-amount">₹150 OFF</span>
-                    </div>
-                    <h3 className="search-title">Find Your Bus</h3>
-                    <div className="title-divider"></div>
-
-                    <form className="search-form">
-                        <div className="form-row">
-
-
-                            <div className="form-group">
-                                <label htmlFor="from" className="field-label">FROM</label>
-                                <div className="input-wrapper">
-                                    <BiMap className="input-icon" />
-                                    <input
-                                        type="text"
-                                        id="from"
-                                        placeholder="Eg: Mumbai"
-                                        className="form-input"
-                                    />
-                                </div>
-                            </div>
-
-                            <button type="button" className="swap-btn" title="Swap Cities">
-                                <BiTransfer />
-                            </button>
-
-                            <div className="form-group">
-                                <label htmlFor="to" className="field-label">TO</label>
-                                <div className="input-wrapper">
-                                    <BiMap className="input-icon" />
-                                    <input
-                                        type="text"
-                                        id="to"
-                                        placeholder="Eg: Pune"
-                                        className="form-input"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="form-group">
-                                <div className="label-row">
-                                    <label htmlFor="date" className="field-label">JOURNEY DATE</label>
-                                    <span className="date-hint"><BiCalendarAlt /> Today | Tomorrow</span>
-                                </div>
-                                <div className="input-wrapper">
-                                    <BiCalendar className="input-icon" />
-                                    <input
-                                        type="date"
-                                        id="date"
-                                        className="form-input"
-                                        min={new Date().toISOString().split('T')[0]}
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="form-group">
-                                <label htmlFor="passengers" className="field-label">PASSENGERS</label>
-                                <div className="input-wrapper">
-                                    <BiUser className="input-icon" />
-                                    <select id="passengers" className="form-input">
-                                        <option value="1">1 Passenger</option>
-                                        <option value="2">2 Passengers</option>
-                                        <option value="3">3 Passengers</option>
-                                        <option value="4">4 Passengers</option>
-                                        <option value="5">5+ Passengers</option>
-                                    </select>
-                                </div>
-                                <div className="trust-line"><BiShield /> Safe & Sanitized Buses</div>
-                            </div>
-                        </div>
-
-                        <div className="form-row search-btn-row">
-                            <button type="submit" className="btn-search">
-                                <BiSearch className="search-icon-btn" />
-                                Search Buses
-                            </button>
-                            <p className="urgency-text"><BiTimeFive /> Limited seats available today</p>
-                        </div>
-                    </form>
-                </div>
-
-                <div className="review-strip">
-                    ⭐ 4.8/5 Rated • On-Time Service
-                </div>
-            </div>
         </section>
     );
 };

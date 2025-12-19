@@ -1,4 +1,5 @@
 import { FaAward, FaUsers, FaBus, FaHandshake } from 'react-icons/fa';
+import officeImage from '../../assets/images/office_image.png';
 import './About.css';
 
 const About = () => {
@@ -28,9 +29,7 @@ const About = () => {
                         </p>
                     </div>
                     <div className="about-image slide-in-right">
-                        <div className="image-placeholder">
-                            <FaBus style={{ fontSize: '5rem', color: '#ccc' }} />
-                        </div>
+                        <img src={officeImage} alt="Empire Tours Office" className="office-img" />
                     </div>
                 </div>
 

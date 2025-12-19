@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BiBus, BiMenu, BiX, BiPhoneCall, BiUser, BiStar, BiLogoWhatsapp, BiHome, BiListUl, BiInfoCircle, BiEnvelope, BiImage } from 'react-icons/bi';
+import { BiBus, BiMenu, BiX, BiPhoneCall, BiUser, BiStar, BiLogoWhatsapp, BiHome, BiPackage, BiInfoCircle, BiEnvelope, BiImage, BiBriefcase } from 'react-icons/bi';
 import logoImage from '../../assets/images/logo-bus.png';
 import './Header.css';
 
@@ -20,9 +20,9 @@ const Header = () => {
 
   const navLinks = [
     { path: '/', label: 'Home', icon: <BiHome /> },
-    { path: '/book-ticket', label: 'Book Ticket', icon: <BiBus /> },
+    { path: '/services', label: 'Services', icon: <BiBriefcase /> },
     { path: '/gallery', label: 'Gallery', icon: <BiImage /> },
-    { path: '/my-bookings', label: 'My Bookings', icon: <BiListUl /> },
+    { path: '/packages', label: 'Packages', icon: <BiPackage /> },
     { path: '/about', label: 'About Us', icon: <BiInfoCircle /> },
     { path: '/contact', label: 'Contact', icon: <BiPhoneCall /> },
   ];
