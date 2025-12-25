@@ -32,7 +32,7 @@ const About = () => {
     }
 
     const mission = aboutData?.mission || "To provide safe, reliable, and comfortable bus travel experiences across India. We strive to connect cities and people with punctual service and premium amenities, ensuring every journey is a memory to cherish.";
-    const years = aboutData?.yearsOfService || "10";
+    const years = aboutData?.yearsOfService || "8";
     const msg = aboutData?.proprietorMessage || "Customer satisfaction is our top priority. At Empire Tours and Travels, we are committed to making your journey as comfortable and safe as your home.";
     const name = aboutData?.proprietorName || "Jeevan Patil";
     const image = aboutData?.image || officeImageDefault;
@@ -44,7 +44,7 @@ const About = () => {
                 <div className="container">
                     <img src={logoImage} alt="Empire Tours" className="page-logo slide-in-down" />
                     <h1 className="slide-in-left">About Bus Travels</h1>
-                    <p className="slide-in-right">Redefining Travel Experiences Since {2025 - parseInt(years)}</p>
+                    <p className="slide-in-right">Redefining Travel Experiences Since 2017</p>
                 </div>
             </div>
 

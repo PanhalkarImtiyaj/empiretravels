@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BiX, BiLogInCircle } from 'react-icons/bi';
+import { BiX, BiLogInCircle, BiShow, BiHide } from 'react-icons/bi';
 import { auth } from '../../firebase/config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import './AuthModal.css';
@@ -8,6 +8,7 @@ import './AuthModal.css';
 const AuthModal = ({ isOpen, onClose, initialMode = 'login' }) => {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
     const [formData, setFormData] = useState({
         email: '',
@@ -39,7 +40,40 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'login' }) => {
             navigate('/admin');
         } catch (err) {
             console.error("Auth error:", err);
-            setError(err.message);
+
+            let userFriendlyMsg = "Something went wrong. Please try again.";
+
+            // Map Firebase error codes to custom messages
+            switch (err.code) {
+                case 'auth/invalid-email':
+                    userFriendlyMsg = "The email address is not valid.";
+                    break;
+                case 'auth/user-disabled':
+                    userFriendlyMsg = "This admin account has been disabled.";
+                    break;
+                case 'auth/user-not-found':
+                    userFriendlyMsg = "No admin account found with this email.";
+                    break;
+                case 'auth/wrong-password':
+                    userFriendlyMsg = "Incorrect password. Please try again.";
+                    break;
+                case 'auth/invalid-credential':
+                    userFriendlyMsg = "Invalid email or password. Please check again.";
+                    break;
+                case 'auth/too-many-requests':
+                    userFriendlyMsg = "Too many attempts. Account is temporarily locked. Try again later.";
+                    break;
+                case 'auth/network-request-failed':
+                    userFriendlyMsg = "Network error. Please check your internet connection.";
+                    break;
+                default:
+                    // Only show the raw message if it's not a common auth error we handle
+                    if (err.message) {
+                        userFriendlyMsg = err.message.replace("Firebase: ", "");
+                    }
+            }
+
+            setError(userFriendlyMsg);
         } finally {
             setLoading(false);
         }
@@ -48,7 +82,7 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'login' }) => {
     return (
         <div className="auth-overlay" onClick={onClose}>
             <div className="auth-modal" onClick={(e) => e.stopPropagation()}>
-                <button className="close-btn" onClick={onClose}>
+                <button className="auth-close-btn" onClick={onClose} aria-label="Close">
                     <BiX />
                 </button>
 
@@ -70,9 +104,9 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'login' }) => {
                             autoComplete="username"
                         />
                     </div>
-                    <div className="input-group">
+                    <div className="input-group password-group">
                         <input
-                            type="password"
+                            type={showPassword ? "text" : "password"}
                             name="password"
                             placeholder="Enter Admin Password"
                             value={formData.password}
@@ -80,6 +114,14 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'login' }) => {
                             required
                             autoComplete="current-password"
                         />
+                        <button
+                            type="button"
+                            className="toggle-password"
+                            onClick={() => setShowPassword(!showPassword)}
+                            aria-label={showPassword ? "Hide password" : "Show password"}
+                        >
+                            {showPassword ? <BiHide /> : <BiShow />}
+                        </button>
                     </div>
                     <button type="submit" className="submit-btn btn-enhanced" disabled={loading}>
                         {loading ? (

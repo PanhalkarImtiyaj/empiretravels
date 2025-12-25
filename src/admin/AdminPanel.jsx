@@ -30,7 +30,7 @@ const AdminPanel = () => {
     });
     const [aboutData, setAboutData] = useState({
         mission: '',
-        yearsOfService: '10',
+        yearsOfService: '8',
         proprietorMessage: '',
         proprietorName: 'Jeevan Patil',
         image: ''
