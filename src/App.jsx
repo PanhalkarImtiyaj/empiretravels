@@ -1,5 +1,5 @@
 import { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import BottomNav from './components/BottomNav/BottomNav';
@@ -37,9 +37,9 @@ const AppContent = () => {
 
   return (
     <div className="App">
-      {!isAdminPath && <Header />}
-      <main>
-        <Suspense fallback={<PageLoader />}>
+      <Suspense fallback={<PageLoader />}>
+        {!isAdminPath && <Header />}
+        <main>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
@@ -49,10 +49,10 @@ const AppContent = () => {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/admin" element={<AdminPanel />} />
           </Routes>
-        </Suspense>
-      </main>
-      {!isAdminPath && <Footer />}
-      {!isAdminPath && <BottomNav />}
+        </main>
+        {!isAdminPath && <Footer />}
+        {!isAdminPath && <BottomNav />}
+      </Suspense>
     </div>
   );
 };
