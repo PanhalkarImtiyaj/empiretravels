@@ -1,16 +1,26 @@
+import { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import BottomNav from './components/BottomNav/BottomNav';
-import Home from './pages/Home/Home';
-import Services from './pages/Services/Services';
-import About from './pages/About/About';
-import Contact from './pages/Contact/Contact'; // Import Contact Page
-import Gallery from './pages/Gallery/Gallery';
-import Packages from './pages/Packages/Packages'; // Import Packages Page
-import AdminPanel from './admin/AdminPanel';
 import ScrollToTop from './components/ScrollToTop';
 import './styles/global.css';
+
+// Lazy load pages for better performance
+const Home = lazy(() => import('./pages/Home/Home'));
+const Services = lazy(() => import('./pages/Services/Services'));
+const About = lazy(() => import('./pages/About/About'));
+const Contact = lazy(() => import('./pages/Contact/Contact'));
+const Gallery = lazy(() => import('./pages/Gallery/Gallery'));
+const Packages = lazy(() => import('./pages/Packages/Packages'));
+const AdminPanel = lazy(() => import('./admin/AdminPanel'));
+
+// Loading component
+const PageLoader = () => (
+  <div className="global-loader">
+    <div className="loader-spinner"></div>
+  </div>
+);
 
 function App() {
   return (
@@ -29,15 +39,17 @@ const AppContent = () => {
     <div className="App">
       {!isAdminPath && <Header />}
       <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/packages" element={<Packages />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/admin" element={<AdminPanel />} />
-        </Routes>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/packages" element={<Packages />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/admin" element={<AdminPanel />} />
+          </Routes>
+        </Suspense>
       </main>
       {!isAdminPath && <Footer />}
       {!isAdminPath && <BottomNav />}

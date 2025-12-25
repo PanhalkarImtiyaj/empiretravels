@@ -231,9 +231,20 @@
 
     .footer-logo,
     .social-links,
-    .footer-title::after,
-    .footer-contact li {
+    .footer-title::after {
         justify-content: center;
+    }
+
+    .footer-contact {
+        align-items: center;
+    }
+
+    .footer-contact li {
+        justify-content: flex-start;
+        text-align: left;
+        width: fit-content;
+        max-width: 100%;
+        margin: 0 auto;
     }
 
     .footer-title::after {
