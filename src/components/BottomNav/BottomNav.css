@@ -74,18 +74,30 @@
     }
 }
 
-/* Ensure visibility at all zoom levels */
-@media (max-width: 768px) and (max-height: 600px) {
-    .bottom-nav {
-        min-height: 55px;
-        padding: 6px 0;
+/* Ensure visibility at all zoom levels and handle narrow screens */
+@media (max-width: 400px) {
+    .bottom-nav-label {
+        font-size: 10px !important;
+    }
+}
+
+@media (max-width: 350px) {
+    .bottom-nav-label {
+        font-size: 9px !important;
+    }
+
+    .bottom-nav-item {
+        padding: 4px 1px;
     }
 
     .bottom-nav-icon {
         font-size: 20px;
     }
+}
 
-    .bottom-nav-label {
-        font-size: 10px !important;
+@media (max-width: 768px) and (max-height: 600px) {
+    .bottom-nav {
+        min-height: 55px;
+        padding: 6px 0;
     }
 }

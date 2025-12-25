@@ -1,5 +1,6 @@
-import { FaBus, FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaInstagram } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import logoImage from '../../assets/images/logo-bus.png';
 import './Footer.css';
 
 const Footer = () => {
@@ -11,11 +12,11 @@ const Footer = () => {
                 <div className="container">
                     <div className="footer-grid">
                         {/* Company Info */}
-                        <div className="footer-col">
+                        <div className="footer-col company-info">
                             <div className="footer-logo">
-                                <FaBus className="footer-logo-icon" />
+                                <img src={logoImage} alt="Empire Travels" className="footer-logo-img" />
                                 <div className="footer-logo-text">
-                                    <span className="footer-logo-name">Empire tours and travels</span>
+                                    <span className="footer-logo-name">Empire travels</span>
                                     <span className="footer-logo-tagline">Your Journey Partner</span>
                                 </div>
                             </div>
@@ -24,27 +25,21 @@ const Footer = () => {
                                 We provide premium bus services with the best amenities and customer support.
                             </p>
                             <div className="social-links">
-                                <a href="#" className="social-link" aria-label="Facebook">
-                                    <FaFacebook />
-                                </a>
-                                <a href="#" className="social-link" aria-label="Twitter">
-                                    <FaTwitter />
-                                </a>
-                                <a href="#" className="social-link" aria-label="Instagram">
+                                <a href="https://www.instagram.com/empire_travels_6567?igsh=N2pxcXF2NXpnYjZi"
+                                    className="social-link instagram"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Instagram">
                                     <FaInstagram />
-                                </a>
-                                <a href="#" className="social-link" aria-label="LinkedIn">
-                                    <FaLinkedin />
                                 </a>
                             </div>
                         </div>
 
                         {/* Quick Links */}
-                        <div className="footer-col">
+                        <div className="footer-col quick-links">
                             <h3 className="footer-title">Quick Links</h3>
                             <ul className="footer-links">
                                 <li><Link to="/">Home</Link></li>
-                                <li><Link to="/book-ticket">Book Ticket</Link></li>
                                 <li><Link to="/gallery">Gallery</Link></li>
                                 <li><Link to="/packages">Packages</Link></li>
                                 <li><Link to="/about">About Us</Link></li>
@@ -52,19 +47,10 @@ const Footer = () => {
                             </ul>
                         </div>
 
-                        {/* Services */}
-                        <div className="footer-col">
-                            <h3 className="footer-title">Our Services</h3>
-                            <ul className="footer-links">
-                                <li><Link to="/services">AC Sleeper Bus</Link></li>
-                                <li><Link to="/services">Pilgrimage Yatra</Link></li>
-                                <li><Link to="/services">Family Picnic Tours</Link></li>
-                                <li><Link to="/services">Meal Services</Link></li>
-                            </ul>
-                        </div>
+
 
                         {/* Contact Info */}
-                        <div className="footer-col">
+                        <div className="footer-col contact-info">
                             <h3 className="footer-title">Contact Us</h3>
                             <ul className="footer-contact">
                                 <li>
@@ -73,17 +59,20 @@ const Footer = () => {
                                 </li>
                                 <li>
                                     <FaPhone className="contact-icon" />
-                                    <a href="tel:+919689116567">+91 968 911 6567</a>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                                        <a href="tel:+919689116567">+91 968 911 6567</a>
+                                        <a href="tel:8080591185">+91 8080 59 1185</a>
+                                    </div>
                                 </li>
                                 <li>
                                     <FaEnvelope className="contact-icon" />
                                     <a href="mailto:empiretours2512@gmail.com">empiretours2512@gmail.com</a>
                                 </li>
                             </ul>
-                            <div className="footer-map" style={{ marginTop: '1rem', borderRadius: '8px', overflow: 'hidden' }}>
+                            <div className="footer-map-container">
                                 <iframe
                                     width="100%"
-                                    height="150"
+                                    height="120"
                                     frameBorder="0"
                                     scrolling="no"
                                     marginHeight="0"
@@ -105,11 +94,6 @@ const Footer = () => {
                             © {currentYear} Empire tours and travels. All rights reserved.
                         </p>
                         <div className="footer-bottom-links">
-                            <a href="#">Privacy Policy</a>
-                            <span className="separator">|</span>
-                            <a href="#">Terms & Conditions</a>
-                            <span className="separator">|</span>
-                            <a href="#">Refund Policy</a>
                         </div>
                     </div>
                 </div>

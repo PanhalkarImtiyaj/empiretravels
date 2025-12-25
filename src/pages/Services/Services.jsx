@@ -1,4 +1,4 @@
-import { BiBus, BiMap, BiBriefcase, BiSupport, BiTime, BiCheckShield, BiCoffee, BiRestaurant, BiGroup, BiDirections, BiHeart } from 'react-icons/bi';
+import { BiBus, BiMap, BiBriefcase, BiSupport, BiTime, BiCheckShield, BiCoffee, BiRestaurant, BiGroup, BiDirections, BiHeart, BiWifi, BiShieldQuarter, BiBed } from 'react-icons/bi';
 import logoImage from '../../assets/images/logo-bus.png';
 import './Services.css';
 
@@ -32,25 +32,41 @@ const Services = () => {
                             <li><BiCheckShield /> 100% Hygienic & Healthy</li>
                         </ul>
                     </div>
-
-                    {/* Service 2 - Family Tours */}
+                    {/* Service 2 - WiFi & CCTV */}
                     <div className="service-card">
                         <div className="service-icon">
-                            <i className="bi-map"><BiMap /></i>
+                            <i className="bi-wifi"><BiWifi /></i>
                         </div>
-                        <h3>Family & Picnic Tours</h3>
+                        <h3>WiFi & CCTV Surveillance</h3>
                         <p>
-                            From scenic hill stations to relaxing beach picnics, we offer
-                            customized family packages that guarantee fun and bonding.
+                            Stay connected and feel safe throughout your journey with our
+                            high-speed WiFi and 24/7 CCTV monitoring systems.
                         </p>
                         <ul className="service-features">
-                            <li><BiBus /> Luxury Sleeper Comfort</li>
-                            <li><BiRestaurant /> Fresh On-board Meals</li>
-                            <li><BiMap /> Sightseeing & Picnic Spots</li>
+                            <li><BiWifi /> Free High-Speed WiFi</li>
+                            <li><BiShieldQuarter /> 24/7 CCTV Monitoring</li>
+                            <li><BiCheckShield /> GPS Live Tracking</li>
                         </ul>
                     </div>
 
-                    {/* Service 3 - Pilgrimage */}
+                    {/* Service 3 - Sleeper & Seating */}
+                    <div className="service-card">
+                        <div className="service-icon">
+                            <i className="bi-bus"><BiBus /></i>
+                        </div>
+                        <h3>Premium Sleeper & Seating</h3>
+                        <p>
+                            Experience the best-in-class comfort with our ergonomic pushback
+                            seats and spacious sleeper berths designed for long journeys.
+                        </p>
+                        <ul className="service-features">
+                            <li><BiBed /> Luxury Sleeper Berths</li>
+                            <li><BiBriefcase /> Ergonomic Pushback Seats</li>
+                            <li><BiCheckShield /> Clean & Fresh Bedding</li>
+                        </ul>
+                    </div>
+
+                    {/* Service 4 - Pilgrimage */}
                     <div className="service-card">
                         <div className="service-icon">
                             <i className="bi-pray"><BiDirections /></i>
