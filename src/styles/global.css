@@ -462,3 +462,21 @@ a {
     transform: rotate(360deg);
   }
 }
+
+/* Internal Page Loading Container */
+.loading-container {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--light-gray);
+  border-top: 4px solid var(--primary-red);
+  border-radius: 50%;
+  animation: spin-global-loader 0.8s linear infinite;
+}
