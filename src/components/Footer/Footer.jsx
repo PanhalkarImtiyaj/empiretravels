@@ -56,11 +56,10 @@ const Footer = () => {
                         <div className="footer-col">
                             <h3 className="footer-title">Our Services</h3>
                             <ul className="footer-links">
-                                <li><a href="#">AC Sleeper Bus</a></li>
-                                <li><a href="#">AC Seater Bus</a></li>
-                                <li><a href="#">Non-AC Sleeper</a></li>
-                                <li><a href="#">Luxury Coaches</a></li>
-                                <li><a href="#">Group Booking</a></li>
+                                <li><Link to="/services">AC Sleeper Bus</Link></li>
+                                <li><Link to="/services">Pilgrimage Yatra</Link></li>
+                                <li><Link to="/services">Family Picnic Tours</Link></li>
+                                <li><Link to="/services">Meal Services</Link></li>
                             </ul>
                         </div>
 
@@ -78,7 +77,7 @@ const Footer = () => {
                                 </li>
                                 <li>
                                     <FaEnvelope className="contact-icon" />
-                                    <a href="mailto:info@bustravels.com">info@bustravels.com</a>
+                                    <a href="mailto:empiretours2512@gmail.com">empiretours2512@gmail.com</a>
                                 </li>
                             </ul>
                             <div className="footer-map" style={{ marginTop: '1rem', borderRadius: '8px', overflow: 'hidden' }}>

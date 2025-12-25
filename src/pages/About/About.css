@@ -1,15 +1,18 @@
 .about-page {
-    padding-top: 5rem;
+    padding-top: 0;
     background-color: var(--white);
 }
 
 .about-hero {
     background: linear-gradient(135deg, var(--primary-dark), var(--primary-red));
     color: var(--white);
-    padding: 4rem 0;
+    padding: 10rem 0 5rem;
     text-align: center;
-    margin-bottom: 0;
-    /* Removed margin to reduce gap */
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .about-hero h1 {
@@ -60,9 +63,13 @@
 /* Stats */
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     margin-bottom: 4rem;
+    justify-content: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .stat-card {
@@ -132,15 +139,13 @@
 /* Responsive */
 @media (max-width: 768px) {
     .about-page {
-        padding-top: 8rem;
+        padding-top: 0;
         overflow-x: hidden;
-        /* Prevent horizontal overflow */
     }
 
     .about-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
-        /* Reduce gap */
     }
 
     .about-hero h1 {
@@ -149,11 +154,11 @@
 
     .message-box {
         padding: 1.5rem;
-        /* Reduce padding for mobile */
     }
 
     .about-page .section {
-        padding-top: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
     }
 
     .about-content {
@@ -162,6 +167,58 @@
 
     .about-image {
         margin: 0 1rem;
-        /* Also add margin to image for consistency */
     }
+
+    .about-hero {
+        padding: 12rem 0 3rem;
+    }
+}
+
+.about-contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.about-contact-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    border: 1px solid #eee;
+}
+
+.about-contact-card .contact-icon {
+    font-size: 2rem;
+    color: #d32f2f;
+    margin-bottom: 1rem;
+}
+
+.about-contact-card h4 {
+    margin-bottom: 0.5rem;
+    color: #1a1a2e;
+}
+
+.about-contact-card a {
+    color: #555;
+    text-decoration: none;
+}
+
+.about-contact-card a:hover {
+    color: #d32f2f;
+}
+
+/* Force Gap Removal */
+.ceo-message.section {
+    padding-bottom: 0 !important;
+}
+
+.about-contact-section.section {
+    padding-top: 2rem !important;
+}
+
+.about-contact-section .section-title {
+    margin-bottom: 1.5rem;
 }

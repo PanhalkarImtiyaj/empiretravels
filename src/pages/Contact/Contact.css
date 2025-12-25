@@ -1,25 +1,62 @@
 .contact-page {
-    padding-top: 8rem;
     background-color: var(--light-gray);
     min-height: 100vh;
+}
+
+.contact-hero {
+    background: linear-gradient(135deg, var(--primary-red), var(--primary-dark));
+    color: var(--white);
+    padding: 10rem 0 5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.contact-hero p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .contact-container {
     display: flex;
     flex-direction: column;
     gap: 4rem;
+    padding-bottom: 4rem;
 }
 
 /* Info Cards */
 .contact-info-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+    .contact-info-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-info-wrapper {
+        grid-template-columns: 1fr;
+    }
 }
 
 .info-card {
     background: var(--white);
-    padding: 2rem;
+    padding: 2rem 1rem;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     text-align: center;
@@ -54,12 +91,17 @@
 .info-card p {
     color: var(--gray);
     line-height: 1.6;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .info-card a {
     color: var(--gray);
     text-decoration: none;
     transition: var(--transition-fast);
+    word-break: break-all;
+    font-size: 0.95rem;
 }
 
 .info-card a:hover {
@@ -125,13 +167,17 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    .contact-hero {
+        padding: 12rem 0 3rem;
+    }
+
+    .contact-hero h1 {
+        font-size: 2.5rem;
+    }
+
     .form-group-half {
         grid-template-columns: 1fr;
         gap: 0;
-    }
-
-    .contact-page {
-        padding-top: 6rem;
     }
 }

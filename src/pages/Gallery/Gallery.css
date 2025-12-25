@@ -3,7 +3,7 @@
 }
 
 .gallery-hero {
-    background: var(--primary-dark);
+    background: linear-gradient(135deg, var(--primary-red), var(--primary-dark));
     /* Removed bus image as requested */
     color: var(--white);
     padding: 10rem 0 5rem;

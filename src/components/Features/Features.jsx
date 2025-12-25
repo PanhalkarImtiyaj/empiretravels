@@ -1,30 +1,30 @@
-import { FaShieldAlt, FaClock, FaHeadset, FaBus } from 'react-icons/fa';
+import { FaShieldAlt, FaUtensils, FaHeadset, FaBed } from 'react-icons/fa';
 import './Features.css';
 
 const WhyChooseUs = () => {
     const features = [
         {
-            icon: <FaBus />,
-            title: 'Modern Buses',
-            description: 'Experience travel in our latest fleet of AC Sleeper & Seater buses.',
+            icon: <FaBed />,
+            title: 'Premium Sleepers',
+            description: 'Travel in luxury with our clean and comfortable AC Sleeper coaches.',
             color: '#f44336'
         },
         {
-            icon: <FaClock />,
-            title: 'On-Time Guarantee',
-            description: 'Punctual departures and arrivals. We value your time.',
+            icon: <FaUtensils />,
+            title: 'Hygienic Meals',
+            description: 'Fresh Nashata and 2-time delicious meals provided during your yatra.',
             color: '#2196f3'
         },
         {
             icon: <FaShieldAlt />,
-            title: 'Secure Payments',
-            description: '100% secure payment gateways for hassle-free booking.',
+            title: 'Safety First',
+            description: 'CCTV surveillance and GPS tracking in all buses for your security.',
             color: '#4caf50'
         },
         {
             icon: <FaHeadset />,
-            title: '24/7 Support',
-            description: 'Round-the-clock customer support for all your queries.',
+            title: 'Expert Support',
+            description: '24/7 assistance and experienced guides for a hassle-free journey.',
             color: '#ff9800'
         }
     ];

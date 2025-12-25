@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from 'react-icons/fa';
+import logoImage from '../../assets/images/logo-bus.png';
 import './Contact.css';
 
 const Contact = () => {
@@ -42,16 +43,19 @@ const Contact = () => {
             message: ''
         });
     };
-    return (
-        <div className="contact-page section">
-            <div className="container">
-                {/* Page Header */}
-                <div className="section-title text-center">
-                    <h1>Contact Us</h1>
-                    <p>We'd love to hear from you. Reach out to us for any queries.</p>
-                </div>
 
-                <div className="contact-container">
+    return (
+        <div className="contact-page">
+            <div className="contact-hero">
+                <div className="container">
+                    <img src={logoImage} alt="Empire Tours" className="page-logo slide-in-down" />
+                    <h1 className="slide-in-left">Contact Us</h1>
+                    <p className="slide-in-right">We'd love to hear from you. Reach out to us for any queries.</p>
+                </div>
+            </div>
+
+            <div className="container">
+                <div className="contact-container mt-4">
                     {/* Contact Info Cards */}
                     <div className="contact-info-wrapper">
                         <div className="info-card">
@@ -68,7 +72,8 @@ const Contact = () => {
                             </div>
                             <h3>Phone Number</h3>
                             <p>
-                                <a href="tel:+919689116567">+91 968 911 6567</a>
+                                <a href="tel:+919689116567">+91 968 911 6567</a><br />
+                                <a href="tel:8080591185">+91 8080 59 1185</a>
                             </p>
                         </div>
 
@@ -78,7 +83,7 @@ const Contact = () => {
                             </div>
                             <h3>Email Address</h3>
                             <p>
-                                <a href="mailto:info@bustravels.com">info@bustravels.com</a>
+                                <a href="mailto:empiretours2512@gmail.com">empiretours2512@gmail.com</a>
                             </p>
                         </div>
 

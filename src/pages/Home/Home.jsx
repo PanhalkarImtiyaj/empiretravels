@@ -1,7 +1,10 @@
+import { useState, useEffect } from 'react';
 import Hero from '../../components/Hero/Hero';
 import WhyChooseUs from '../../components/Features/Features';
-import { packagesData } from '../../data/packagesData';
+import { packagesData as localPackages } from '../../data/packagesData';
 import { Link } from 'react-router-dom';
+import { db } from '../../firebase/config';
+import { collection, getDocs, query, orderBy, limit, where } from 'firebase/firestore';
 import frontBus from '../../assets/galleary/front-side-bus.png';
 import sleeperBus from '../../assets/galleary/seelper.png';
 import seatingBus from '../../assets/galleary/seets.png';
@@ -9,10 +12,57 @@ import interiorBus from '../../assets/luxury_bus_interior.png';
 import './Home.css';
 
 const Home = () => {
+    const [packages, setPackages] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchPackages = async () => {
+            try {
+                // Try fetching popular packages first
+                const qPopular = query(
+                    collection(db, "packages"),
+                    where("isPopular", "==", true),
+                    limit(3)
+                );
+                const querySnapshot = await getDocs(qPopular);
+                let firestorePkgs = querySnapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                }));
+
+                // If no popular ones, fall back to latest 3
+                if (firestorePkgs.length === 0) {
+                    const qLatest = query(
+                        collection(db, "packages"),
+                        orderBy("createdAt", "desc"),
+                        limit(3)
+                    );
+                    const latestSnapshot = await getDocs(qLatest);
+                    firestorePkgs = latestSnapshot.docs.map(doc => ({
+                        id: doc.id,
+                        ...doc.data()
+                    }));
+                }
+
+                if (firestorePkgs.length > 0) {
+                    setPackages(firestorePkgs);
+                } else {
+                    setPackages(localPackages.slice(0, 3));
+                }
+            } catch (error) {
+                console.error("Error fetching packages:", error);
+                setPackages(localPackages.slice(0, 3));
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchPackages();
+    }, []);
+
     return (
         <div className="home-page">
             <Hero />
-
 
             {/* Why Choose Us Section */}
             <WhyChooseUs />
@@ -24,21 +74,29 @@ const Home = () => {
                         <h2>Popular Tour Packages</h2>
                         <p>Explore our most loved destinations</p>
                     </div>
-                    <div className="home-packages-grid">
-                        {packagesData.slice(0, 3).map((pkg) => (
-                            <div key={pkg.id} className="home-package-card">
-                                <div className="home-package-image">
-                                    <img src={pkg.image} alt={pkg.title} />
-                                    <span className="home-package-category">{pkg.category}</span>
+                    {loading ? (
+                        <div className="home-packages-loading">
+                            <div className="spinner"></div>
+                        </div>
+                    ) : (
+                        <div className="home-packages-grid">
+                            {packages.map((pkg) => (
+                                <div key={pkg.id} className="home-package-card">
+                                    <div className="home-package-image">
+                                        <img src={pkg.image} alt={pkg.title} loading="lazy" />
+                                    </div>
+                                    <div className="home-package-content">
+                                        <h3>{pkg.title}</h3>
+                                        <div className="pkg-meta-home">
+                                            <span className="home-package-duration">⏱ {pkg.duration}</span>
+                                            <span className="home-package-price">₹{Number(pkg.price).toLocaleString('en-IN')}</span>
+                                        </div>
+                                        <Link to="/packages" className="btn-view-package">View Details</Link>
+                                    </div>
                                 </div>
-                                <div className="home-package-content">
-                                    <h3>{pkg.title}</h3>
-                                    <p className="home-package-duration">⏱ {pkg.duration}</p>
-                                    <Link to="/packages" className="btn-view-package">View Details</Link>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                            ))}
+                        </div>
+                    )}
                     <div className="view-all-container">
                         <Link to="/packages" className="btn-view-all">View All Packages</Link>
                     </div>
@@ -130,13 +188,14 @@ const Home = () => {
                         <div className="benefit-card">
                             <div className="benefit-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <polyline points="1 4 1 10 7 10" />
-                                    <polyline points="23 20 23 14 17 14" />
-                                    <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15" />
+                                    <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+                                    <path d="M1.42 9a16 16 0 0 1 21.16 0" />
+                                    <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+                                    <line x1="12" y1="20" x2="12" y2="20" />
                                 </svg>
                             </div>
-                            <h3>Easy Cancellation</h3>
-                            <p>Flexible cancellation policy with quick refunds</p>
+                            <h3>WiFi & CCTV</h3>
+                            <p>High-speed internet and 24/7 CCTV surveillance for your comfort and safety</p>
                         </div>
                     </div>
                 </div>

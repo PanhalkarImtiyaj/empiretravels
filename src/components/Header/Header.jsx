@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BiBus, BiMenu, BiX, BiPhoneCall, BiUser, BiStar, BiLogoWhatsapp, BiHome, BiPackage, BiInfoCircle, BiEnvelope, BiImage, BiBriefcase } from 'react-icons/bi';
+import { BiBus, BiMenu, BiX, BiPhoneCall, BiUser, BiLogoWhatsapp, BiHome, BiPackage, BiInfoCircle, BiEnvelope, BiImage, BiBriefcase, BiLogInCircle } from 'react-icons/bi';
 import logoImage from '../../assets/images/logo-bus.png';
+import AuthModal from '../Auth/AuthModal';
 import './Header.css';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -46,7 +48,7 @@ const Header = () => {
               </a>
               <a
                 href="https://wa.me/919689116567?text=Hello,%20I%20want%20to%20enquire%20about%20bus%20booking."
-                className="contact-item"
+                className="contact-item top-whatsapp"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -56,12 +58,17 @@ const Header = () => {
                 </div>
               </a>
             </div>
-            {/* <div className="user-actions">
-              <button className="btn-icon btn-enhanced">
-                <BiUser />
-                <span>Login / Register</span>
+            <div className="user-actions">
+              <button
+                className="btn-auth login"
+                onClick={() => {
+                  setIsAuthModalOpen(true);
+                }}
+              >
+                <BiLogInCircle />
+                <span>Login</span>
               </button>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
@@ -75,8 +82,7 @@ const Header = () => {
               <img src={logoImage} alt="Empire Tours" className="logo-img" />
               <div className="logo-text">
                 <span className="logo-name">Empire tours and travels</span>
-                <span className="logo-tagline">Your Journey Partner</span>
-                <span className="trust-text"><BiStar /> Trusted by 5,000+ Travelers</span>
+                <span className="logo-tagline">Customer satisfaction is our top priority</span>
               </div>
             </Link>
 
@@ -117,12 +123,30 @@ const Header = () => {
             </li>
           ))}
         </ul>
+
+        <div className="mobile-auth-actions">
+          <button
+            className="btn-auth login"
+            onClick={() => {
+              setIsAuthModalOpen(true);
+              setIsMobileMenuOpen(false);
+            }}
+          >
+            <BiLogInCircle />
+            <span>Login</span>
+          </button>
+        </div>
       </div>
 
       {/* Overlay */}
       {isMobileMenuOpen && (
         <div className="overlay" onClick={() => setIsMobileMenuOpen(false)}></div>
       )}
+      {/* Auth Modal */}
+      <AuthModal
+        isOpen={isAuthModalOpen}
+        onClose={() => setIsAuthModalOpen(false)}
+      />
     </header>
   );
 };

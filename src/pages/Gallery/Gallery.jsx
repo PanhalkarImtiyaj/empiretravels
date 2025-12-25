@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BiX, BiChevronLeft, BiChevronRight, BiZoomIn } from 'react-icons/bi';
+import { db } from '../../firebase/config';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import './Gallery.css';
 
-// Import local images
+// Import local images as defaults
 import frontSide from '../../assets/galleary/front-side-bus.png';
 import busLeftSide from '../../assets/galleary/bus left side.png';
 import backSide from '../../assets/galleary/back side.png';
@@ -12,53 +14,47 @@ import singleSleeper from '../../assets/galleary/single slpeer.png';
 import logoImage from '../../assets/images/logo-bus.png';
 
 const Gallery = () => {
-    // Our Fleet Images
-    const galleryImages = [
-        {
-            id: 1,
-            src: frontSide,
-            title: "Premium Bus - Front View",
-            category: "Exterior"
-        },
-        {
-            id: 2,
-            src: busLeftSide,
-            title: "Side Profile",
-            category: "Exterior"
-        },
-        {
-            id: 3,
-            src: backSide,
-            title: "Rear View",
-            category: "Exterior"
-        },
-        {
-            id: 4,
-            src: seats,
-            title: "Comfortable Seating",
-            category: "Interior"
-        },
-        {
-            id: 5,
-            src: sleeper,
-            title: "Spacious Double Sleeper",
-            category: "Interior"
-        },
-        {
-            id: 6,
-            src: singleSleeper,
-            title: "Private Single Cabin",
-            category: "Luxury"
-        }
-    ];
-
+    const [firestoreGallery, setFirestoreGallery] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [selectedImage, setSelectedImage] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0);
 
+    // Default Images
+    const localGallery = [
+        { id: 'l1', src: frontSide, title: "Premium Bus - Front View" },
+        { id: 'l2', src: busLeftSide, title: "Side Profile" },
+        { id: 'l3', src: backSide, title: "Rear View" },
+        { id: 'l4', src: seats, title: "Comfortable Seating" },
+        { id: 'l5', src: sleeper, title: "Spacious Double Sleeper" },
+        { id: 'l6', src: singleSleeper, title: "Private Single Cabin" }
+    ];
+
+    useEffect(() => {
+        const fetchGallery = async () => {
+            try {
+                const q = query(collection(db, "gallery"), orderBy("createdAt", "desc"));
+                const querySnapshot = await getDocs(q);
+                const list = querySnapshot.docs.map(doc => ({
+                    id: doc.id,
+                    src: doc.data().image,
+                    title: doc.data().title
+                }));
+                setFirestoreGallery(list);
+            } catch (error) {
+                console.error("Error fetching gallery:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchGallery();
+    }, []);
+
+    const allImages = [...firestoreGallery, ...localGallery];
+
     const openLightbox = (index) => {
         setCurrentIndex(index);
-        setSelectedImage(galleryImages[index]);
-        document.body.style.overflow = 'hidden'; // Prevent scroll
+        setSelectedImage(allImages[index]);
+        document.body.style.overflow = 'hidden';
     };
 
     const closeLightbox = () => {
@@ -68,17 +64,21 @@ const Gallery = () => {
 
     const nextImage = (e) => {
         e.stopPropagation();
-        const next = (currentIndex + 1) % galleryImages.length;
+        const next = (currentIndex + 1) % allImages.length;
         setCurrentIndex(next);
-        setSelectedImage(galleryImages[next]);
+        setSelectedImage(allImages[next]);
     };
 
     const prevImage = (e) => {
         e.stopPropagation();
-        const prev = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+        const prev = (currentIndex - 1 + allImages.length) % allImages.length;
         setCurrentIndex(prev);
-        setSelectedImage(galleryImages[prev]);
+        setSelectedImage(allImages[prev]);
     };
+
+    if (loading) {
+        return <div className="loading-container"><div className="spinner"></div></div>;
+    }
 
     return (
         <div className="gallery-page">
@@ -92,7 +92,7 @@ const Gallery = () => {
 
             <div className="container">
                 <div className="gallery-grid">
-                    {galleryImages.map((img, index) => (
+                    {allImages.map((img, index) => (
                         <div
                             key={img.id}
                             className="gallery-item"

@@ -65,28 +65,51 @@
     opacity: 0.8;
 }
 
-.user-actions .btn-icon {
-    background: transparent;
+.user-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.btn-auth {
+    background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: var(--white);
-    padding: 0.4rem 1rem;
-    border-radius: var(--radius-md);
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     cursor: pointer;
-    transition: var(--transition-fast);
+    transition: all 0.3s ease;
     font-size: 0.875rem;
+    font-weight: 600;
 }
 
-.btn-enhanced {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-.user-actions .btn-icon:hover {
+.btn-auth.login {
     background: rgba(255, 255, 255, 0.1);
-    border-color: var(--white);
-    transform: translateY(-1px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: var(--white);
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.btn-auth:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-auth.login:hover {
+    background: var(--white);
+    color: var(--primary-red);
+    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -130,16 +153,15 @@
 }
 
 /* WhatsApp Styling */
-a[href*="wa.me"] {
+a.top-whatsapp {
     color: #4ceb84 !important;
-    /* WhatsApp Green Bright */
     background: rgba(0, 0, 0, 0.2);
     padding: 2px 10px;
     border-radius: 20px;
     font-weight: 600;
 }
 
-a[href*="wa.me"]:hover {
+a.top-whatsapp:hover {
     background: rgba(0, 0, 0, 0.3);
     color: #ffffff !important;
 }
@@ -171,15 +193,33 @@ a[href*="wa.me"]:hover {
     color: var(--gray);
     font-weight: 500;
     letter-spacing: 0.5px;
+    white-space: nowrap;
+    animation: fadeInLeftTagline 1s ease-out forwards, shineTagline 3s infinite linear;
+    background: linear-gradient(90deg, #666 0%, #d32f2f 50%, #666 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.trust-text {
-    font-size: 0.65rem;
-    color: #2e7d32;
-    /* Green color for trust */
-    font-weight: 600;
-    margin-top: 2px;
+@keyframes shineTagline {
+    to {
+        background-position: 200% center;
+    }
 }
+
+@keyframes fadeInLeftTagline {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 
 /* Desktop Navigation */
 .desktop-nav {
@@ -257,6 +297,21 @@ a[href*="wa.me"]:hover {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.mobile-auth-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-top: 1px solid var(--light-gray);
+    padding-top: 2rem;
+}
+
+.mobile-auth-actions .btn-auth {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
 }
 
 .mobile-nav .nav-link {
@@ -314,11 +369,15 @@ a[href*="wa.me"]:hover {
 
     .user-actions {
         width: 100%;
+        justify-content: center;
+        gap: 0.5rem;
     }
 
-    .user-actions .btn-icon {
-        width: 100%;
+    .btn-auth {
+        flex: 1;
         justify-content: center;
+        padding: 0.5rem;
+        font-size: 0.8rem;
     }
 
     .logo-img {

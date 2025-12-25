@@ -7,7 +7,7 @@ export const packagesData = [
     {
         id: 101,
         title: "Kedarnath Dham Yatra",
-        category: "Pilgrimage",
+        
         destination: "Kedarnath, Uttarakhand",
         duration: "5 Days / 4 Nights",
         days: 5,
@@ -27,7 +27,7 @@ export const packagesData = [
     {
         id: 102,
         title: "Kashmir - Heaven on Earth",
-        category: "Honeymoon",
+        
         destination: "Srinagar, Gulmarg, Pahalgam",
         duration: "6 Days / 5 Nights",
         days: 6,
@@ -47,7 +47,7 @@ export const packagesData = [
     {
         id: 103,
         title: "South India Temple Tour",
-        category: "Group Tour",
+        
         destination: "Tamil Nadu & Karnataka",
         duration: "8 Days / 7 Nights",
         days: 8,
@@ -69,7 +69,7 @@ export const packagesData = [
     {
         id: 1,
         title: "Goa Beach Paradise",
-        category: "Domestic",
+        
         destination: "Goa",
         duration: "4 Days / 3 Nights",
         days: 4,
@@ -89,7 +89,7 @@ export const packagesData = [
     {
         id: 2,
         title: "Kerala Backwaters",
-        category: "Domestic",
+        
         destination: "Kerala",
         duration: "6 Days / 5 Nights",
         days: 6,
@@ -109,7 +109,7 @@ export const packagesData = [
     {
         id: 3,
         title: "Rajasthan Heritage Tour",
-        category: "Domestic",
+        
         destination: "Rajasthan",
         duration: "7 Days / 6 Nights",
         days: 7,
@@ -129,7 +129,7 @@ export const packagesData = [
     {
         id: 4,
         title: "Shimla Manali Delight",
-        category: "Domestic",
+        
         destination: "Himachal Pradesh",
         duration: "5 Days / 4 Nights",
         days: 5,
@@ -149,7 +149,7 @@ export const packagesData = [
     {
         id: 5,
         title: "Ladakh Adventure",
-        category: "Domestic",
+        
         destination: "Ladakh",
         duration: "8 Days / 7 Nights",
         days: 8,
@@ -172,7 +172,7 @@ export const packagesData = [
     {
         id: 6,
         title: "Dubai Extravaganza",
-        category: "International",
+        
         destination: "Dubai, UAE",
         duration: "5 Days / 4 Nights",
         days: 5,
@@ -194,7 +194,7 @@ export const packagesData = [
     {
         id: 7,
         title: "Thailand Paradise",
-        category: "International",
+        
         destination: "Bangkok & Pattaya",
         duration: "6 Days / 5 Nights",
         days: 6,
@@ -214,7 +214,7 @@ export const packagesData = [
     {
         id: 8,
         title: "Singapore Malaysia",
-        category: "International",
+        
         destination: "Singapore & Kuala Lumpur",
         duration: "7 Days / 6 Nights",
         days: 7,
@@ -234,7 +234,7 @@ export const packagesData = [
     {
         id: 9,
         title: "Bali Retreat",
-        category: "International",
+        
         destination: "Bali, Indonesia",
         duration: "5 Days / 4 Nights",
         days: 5,
@@ -257,7 +257,7 @@ export const packagesData = [
     {
         id: 10,
         title: "Maldives Romance",
-        category: "Honeymoon",
+        
         destination: "Maldives",
         duration: "5 Days / 4 Nights",
         days: 5,
@@ -277,7 +277,7 @@ export const packagesData = [
     {
         id: 11,
         title: "Kashmir Paradise",
-        category: "Honeymoon",
+        
         destination: "Kashmir",
         duration: "6 Days / 5 Nights",
         days: 6,
@@ -297,7 +297,7 @@ export const packagesData = [
     {
         id: 12,
         title: "Mauritius Bliss",
-        category: "Honeymoon",
+        
         destination: "Mauritius",
         duration: "7 Days / 6 Nights",
         days: 7,
@@ -319,7 +319,7 @@ export const packagesData = [
     {
         id: 13,
         title: "Char Dham Yatra",
-        category: "Pilgrimage",
+        
         destination: "Uttarakhand",
         duration: "10 Days / 9 Nights",
         days: 10,
@@ -339,7 +339,7 @@ export const packagesData = [
     {
         id: 14,
         title: "Vaishno Devi Darshan",
-        category: "Pilgrimage",
+        
         destination: "Jammu & Kashmir",
         duration: "3 Days / 2 Nights",
         days: 3,
@@ -359,7 +359,7 @@ export const packagesData = [
     {
         id: 15,
         title: "Tirupati Balaji",
-        category: "Pilgrimage",
+        
         destination: "Andhra Pradesh",
         duration: "2 Days / 1 Night",
         days: 2,
@@ -381,7 +381,7 @@ export const packagesData = [
     {
         id: 16,
         title: "Golden Triangle Tour",
-        category: "Group Tour",
+        
         destination: "Delhi, Agra, Jaipur",
         duration: "6 Days / 5 Nights",
         days: 6,
@@ -401,7 +401,7 @@ export const packagesData = [
     {
         id: 17,
         title: "South India Temple Tour",
-        category: "Group Tour",
+        
         destination: "Tamil Nadu & Karnataka",
         duration: "8 Days / 7 Nights",
         days: 8,
@@ -421,7 +421,7 @@ export const packagesData = [
     {
         id: 18,
         title: "Northeast Explorer",
-        category: "Group Tour",
+        
         destination: "Assam, Meghalaya, Sikkim",
         duration: "9 Days / 8 Nights",
         days: 9,
@@ -438,13 +438,4 @@ export const packagesData = [
         inclusions: ["Accommodation", "All meals", "Transfers", "Permits", "Guide"],
         exclusions: ["Flight tickets", "Personal expenses", "Safari charges"]
     }
-];
-
-// Category list for filtering
-export const categories = [
-    "All",
-    "Domestic",
-    "Honeymoon",
-    "Pilgrimage",
-    "Group Tour"
 ];

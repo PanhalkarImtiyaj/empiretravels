@@ -2,11 +2,7 @@ import { useState, useEffect } from 'react';
 import { BiCheck, BiShield, BiStar, BiMapPin } from 'react-icons/bi';
 import './Hero.css';
 
-// Import local slider images
-import slide2 from '../../assets/slider_images/2.jpg';
-import slide3 from '../../assets/slider_images/3.jpg';
-import slide4 from '../../assets/slider_images/4.jpg';
-import slide5 from '../../assets/slider_images/5.jpg';
+// Slider images removed
 // Import static hero images
 import mobileHeroImage from '../../assets/images/bus-hero-image.png';
 import desktopHeroImage from '../../assets/images/bus-hero-dekstop.png';

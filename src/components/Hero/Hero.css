@@ -283,8 +283,8 @@
         position: relative;
         width: 100%;
         height: auto;
-        margin-top: 140px;
-        /* Space for fixed header */
+        margin-top: 180px;
+        /* Increased from 140px to clear fixed header */
     }
 
     .slide-item {
@@ -360,8 +360,8 @@
 
 @media (max-width: 480px) {
     .hero-slider {
-        margin-top: 100px;
-        /* Adjust based on mobile header height */
+        margin-top: 140px;
+        /* Increased from 100px */
     }
 
     .hero-overlay {
@@ -369,7 +369,7 @@
     }
 
     .slide-item {
-        top: -45px;
+        top: 0;
         height: 450px;
         /* Increased from 250px for much bigger image */
         background-size: cover;

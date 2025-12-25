@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import BottomNav from './components/BottomNav/BottomNav';
@@ -8,6 +8,7 @@ import About from './pages/About/About';
 import Contact from './pages/Contact/Contact'; // Import Contact Page
 import Gallery from './pages/Gallery/Gallery';
 import Packages from './pages/Packages/Packages'; // Import Packages Page
+import AdminPanel from './admin/AdminPanel';
 import ScrollToTop from './components/ScrollToTop';
 import './styles/global.css';
 
@@ -15,24 +16,34 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="App">
-        <Header />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/packages" element={<Packages />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/gallery" element={<Gallery />} />
-          </Routes>
-        </main>
-        <Footer />
-        <BottomNav />
-      </div>
+      <AppContent />
     </Router>
   );
 }
+
+const AppContent = () => {
+  const location = useLocation();
+  const isAdminPath = location.pathname.startsWith('/admin');
+
+  return (
+    <div className="App">
+      {!isAdminPath && <Header />}
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/packages" element={<Packages />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/admin" element={<AdminPanel />} />
+        </Routes>
+      </main>
+      {!isAdminPath && <Footer />}
+      {!isAdminPath && <BottomNav />}
+    </div>
+  );
+};
 
 // Temporary Coming Soon Component
 const ComingSoon = ({ page }) => {
