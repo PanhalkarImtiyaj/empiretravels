@@ -93,6 +93,18 @@
     filter: brightness(1.1);
 }
 
+.social-link.facebook {
+    background: linear-gradient(45deg, #1877f2 0%, #0056b3 100%);
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(24, 119, 242, 0.2);
+}
+
+.social-link.facebook:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(24, 119, 242, 0.4);
+    filter: brightness(1.1);
+}
+
 /* Footer Columns */
 .footer-col {
     display: flex;

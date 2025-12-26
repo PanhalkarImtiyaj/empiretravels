@@ -1,9 +1,12 @@
 /* Featured Packages Section */
 .home-packages-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
+    /* Enforce 3 columns exactly */
     gap: 2rem;
     margin-bottom: 2rem;
+    align-items: stretch;
+    /* All cards same height */
 }
 
 .home-package-card {
@@ -12,6 +15,22 @@
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    /* For vertical alignment */
+}
+
+/* Responsive for Home Packages */
+@media (max-width: 1024px) {
+    .home-packages-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .home-packages-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .home-package-card:hover {
@@ -42,6 +61,10 @@
 
 .home-package-content {
     padding: 1.5rem;
+    flex: 1;
+    /* Grow to fill card height */
+    display: flex;
+    flex-direction: column;
 }
 
 .home-package-content h3 {
@@ -99,6 +122,8 @@
     text-decoration: none;
     font-weight: 600;
     transition: background 0.3s ease;
+    margin-top: auto;
+    /* Push to bottom */
 }
 
 .btn-view-package:hover {

@@ -24,9 +24,22 @@ const AdminPanel = () => {
         destination: '',
         duration: '',
         price: '',
+        sleeperPrice: '',
+        semiSleeperPrice: '',
         image: '',
         highlights: '',
-        isPopular: false
+        isPopular: false,
+        meals: {
+            breakfast: 'Chai & Fresh Nashta',
+            lunch: 'Pure Veg Meal',
+            dinner: 'Pure Veg Meal',
+            description: '2 Times Pure Veg Meals + Morning Chai-Nashta'
+        },
+        accommodation: {
+            type: 'Premium Hotels',
+            description: 'Clean, comfortable & well-maintained premium accommodations',
+            amenities: 'Clean Rooms, Hot Water, Comfortable Beds, Safe Location'
+        }
     });
     const [aboutData, setAboutData] = useState({
         mission: '',
@@ -125,7 +138,14 @@ const AdminPanel = () => {
                 ...pkgForm,
                 image: imageUrl,
                 highlights: (pkgForm.highlights || '').split(',').map(h => h.trim()).filter(h => h !== ''),
-                price: Number(pkgForm.price || 0),
+                price: Number(pkgForm.semiSleeperPrice || 0), // Use semiSleeperPrice as base price
+                sleeperPrice: Number(pkgForm.sleeperPrice || 0),
+                semiSleeperPrice: Number(pkgForm.semiSleeperPrice || 0),
+                meals: pkgForm.meals,
+                accommodation: {
+                    ...pkgForm.accommodation,
+                    amenities: (pkgForm.accommodation.amenities || '').split(',').map(a => a.trim()).filter(a => a !== '')
+                },
                 updatedAt: serverTimestamp()
             };
 
@@ -142,7 +162,28 @@ const AdminPanel = () => {
             setEditingPkg(null);
             setImageFile(null);
             setImagePreview(null);
-            setPkgForm({ title: '', destination: '', duration: '', price: '', image: '', highlights: '', isPopular: false });
+            setPkgForm({
+                title: '',
+                destination: '',
+                duration: '',
+                price: '',
+                sleeperPrice: '',
+                semiSleeperPrice: '',
+                image: '',
+                highlights: '',
+                isPopular: false,
+                meals: {
+                    breakfast: 'Chai & Fresh Nashta',
+                    lunch: 'Pure Veg Meal',
+                    dinner: 'Pure Veg Meal',
+                    description: '2 Times Pure Veg Meals + Morning Chai-Nashta'
+                },
+                accommodation: {
+                    type: 'Premium Hotels',
+                    description: 'Clean, comfortable & well-maintained premium accommodations',
+                    amenities: 'Clean Rooms, Hot Water, Comfortable Beds, Safe Location'
+                }
+            });
             fetchPackages();
             showToast(editingPkg ? "✏️ Package details refined successfully!" : "🚀 Luxury tour package launched!");
         } catch (error) {
@@ -240,9 +281,27 @@ const AdminPanel = () => {
             destination: pkg.destination || '',
             duration: pkg.duration || '',
             price: pkg.price || '',
+            sleeperPrice: pkg.sleeperPrice || '',
+            semiSleeperPrice: pkg.semiSleeperPrice || '',
             image: pkg.image || '',
             highlights: pkg.highlights?.join(', ') || '',
-            isPopular: pkg.isPopular || false
+            isPopular: pkg.isPopular || false,
+            meals: pkg.meals || {
+                breakfast: 'Chai & Fresh Nashta',
+                lunch: 'Pure Veg Meal',
+                dinner: 'Pure Veg Meal',
+                description: '2 Times Pure Veg Meals + Morning Chai-Nashta'
+            },
+            accommodation: pkg.accommodation ? {
+                ...pkg.accommodation,
+                amenities: Array.isArray(pkg.accommodation.amenities)
+                    ? pkg.accommodation.amenities.join(', ')
+                    : pkg.accommodation.amenities || 'Clean Rooms, Hot Water, Comfortable Beds, Safe Location'
+            } : {
+                type: 'Premium Hotels',
+                description: 'Clean, comfortable & well-maintained premium accommodations',
+                amenities: 'Clean Rooms, Hot Water, Comfortable Beds, Safe Location'
+            }
         });
         setIsPkgModalOpen(true);
     };
@@ -383,7 +442,33 @@ const AdminPanel = () => {
                                         <BiPackage />
                                         <span>Manage Packages</span>
                                     </button>
-                                    <button className="quick-action-btn" onClick={() => { setEditingPkg(null); setImagePreview(null); setPkgForm({ title: '', destination: '', duration: '', price: '', image: '', highlights: '' }); setIsPkgModalOpen(true); }}>
+                                    <button className="quick-action-btn" onClick={() => {
+                                        setEditingPkg(null);
+                                        setImagePreview(null);
+                                        setPkgForm({
+                                            title: '',
+                                            destination: '',
+                                            duration: '',
+                                            price: '',
+                                            sleeperPrice: '',
+                                            semiSleeperPrice: '',
+                                            image: '',
+                                            highlights: '',
+                                            isPopular: false,
+                                            meals: {
+                                                breakfast: 'Chai & Fresh Nashta',
+                                                lunch: 'Pure Veg Meal',
+                                                dinner: 'Pure Veg Meal',
+                                                description: '2 Times Pure Veg Meals + Morning Chai-Nashta'
+                                            },
+                                            accommodation: {
+                                                type: 'Premium Hotels',
+                                                description: 'Clean, comfortable & well-maintained premium accommodations',
+                                                amenities: 'Clean Rooms, Hot Water, Comfortable Beds, Safe Location'
+                                            }
+                                        });
+                                        setIsPkgModalOpen(true);
+                                    }}>
                                         <BiPlusCircle />
                                         <span>Add New Package</span>
                                     </button>
@@ -399,7 +484,28 @@ const AdminPanel = () => {
                                 <button className="add-pkg-btn" onClick={() => {
                                     setEditingPkg(null);
                                     setImagePreview(null);
-                                    setPkgForm({ title: '', destination: '', duration: '', price: '', image: '', highlights: '', isPopular: false });
+                                    setPkgForm({
+                                        title: '',
+                                        destination: '',
+                                        duration: '',
+                                        price: '',
+                                        sleeperPrice: '',
+                                        semiSleeperPrice: '',
+                                        image: '',
+                                        highlights: '',
+                                        isPopular: false,
+                                        meals: {
+                                            breakfast: 'Chai & Fresh Nashta',
+                                            lunch: 'Pure Veg Meal',
+                                            dinner: 'Pure Veg Meal',
+                                            description: '2 Times Pure Veg Meals + Morning Chai-Nashta'
+                                        },
+                                        accommodation: {
+                                            type: 'Premium Hotels',
+                                            description: 'Clean, comfortable & well-maintained premium accommodations',
+                                            amenities: 'Clean Rooms, Hot Water, Comfortable Beds, Safe Location'
+                                        }
+                                    });
                                     setIsPkgModalOpen(true);
                                 }}>
                                     <BiPlusCircle /> Add New Package
@@ -527,8 +633,12 @@ const AdminPanel = () => {
                                     <input type="text" value={pkgForm.duration} onChange={e => setPkgForm({ ...pkgForm, duration: e.target.value })} required placeholder="e.g., 5 Days / 4 Nights" />
                                 </div>
                                 <div className="form-group">
-                                    <label>Price (₹) *</label>
-                                    <input type="number" value={pkgForm.price} onChange={e => setPkgForm({ ...pkgForm, price: e.target.value })} required placeholder="e.g., 18999" />
+                                    <label>Semi-Sleeper Price (₹) *</label>
+                                    <input type="number" value={pkgForm.semiSleeperPrice} onChange={e => setPkgForm({ ...pkgForm, semiSleeperPrice: e.target.value })} required placeholder="e.g., 18999" />
+                                </div>
+                                <div className="form-group">
+                                    <label>Sleeper Price (₹) *</label>
+                                    <input type="number" value={pkgForm.sleeperPrice} onChange={e => setPkgForm({ ...pkgForm, sleeperPrice: e.target.value })} required placeholder="e.g., 22999" />
                                 </div>
                                 <div className="form-group checkbox-group">
                                     <label className="checkbox-label">
@@ -541,6 +651,84 @@ const AdminPanel = () => {
                                     </label>
                                 </div>
                             </div>
+
+                            {/* Meals Section */}
+                            <div className="form-section">
+                                <h3 className="section-heading">🍽️ Meals Information</h3>
+                                <div className="form-grid">
+                                    <div className="form-group">
+                                        <label>Breakfast</label>
+                                        <input
+                                            type="text"
+                                            value={pkgForm.meals.breakfast}
+                                            onChange={e => setPkgForm({ ...pkgForm, meals: { ...pkgForm.meals, breakfast: e.target.value } })}
+                                            placeholder="e.g., Chai & Fresh Nashta"
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Lunch</label>
+                                        <input
+                                            type="text"
+                                            value={pkgForm.meals.lunch}
+                                            onChange={e => setPkgForm({ ...pkgForm, meals: { ...pkgForm.meals, lunch: e.target.value } })}
+                                            placeholder="e.g., Pure Veg Meal"
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Dinner</label>
+                                        <input
+                                            type="text"
+                                            value={pkgForm.meals.dinner}
+                                            onChange={e => setPkgForm({ ...pkgForm, meals: { ...pkgForm.meals, dinner: e.target.value } })}
+                                            placeholder="e.g., Pure Veg Meal"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <label>Meals Description</label>
+                                    <input
+                                        type="text"
+                                        value={pkgForm.meals.description}
+                                        onChange={e => setPkgForm({ ...pkgForm, meals: { ...pkgForm.meals, description: e.target.value } })}
+                                        placeholder="e.g., 2 Times Pure Veg Meals + Morning Chai-Nashta"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Accommodation Section */}
+                            <div className="form-section">
+                                <h3 className="section-heading">🏨 Accommodation Details</h3>
+                                <div className="form-grid">
+                                    <div className="form-group">
+                                        <label>Accommodation Type</label>
+                                        <input
+                                            type="text"
+                                            value={pkgForm.accommodation.type}
+                                            onChange={e => setPkgForm({ ...pkgForm, accommodation: { ...pkgForm.accommodation, type: e.target.value } })}
+                                            placeholder="e.g., Premium Hotels"
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Amenities (comma separated)</label>
+                                        <input
+                                            type="text"
+                                            value={pkgForm.accommodation.amenities}
+                                            onChange={e => setPkgForm({ ...pkgForm, accommodation: { ...pkgForm.accommodation, amenities: e.target.value } })}
+                                            placeholder="Clean Rooms, Hot Water, Comfortable Beds"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <label>Accommodation Description</label>
+                                    <textarea
+                                        rows="2"
+                                        value={pkgForm.accommodation.description}
+                                        onChange={e => setPkgForm({ ...pkgForm, accommodation: { ...pkgForm.accommodation, description: e.target.value } })}
+                                        placeholder="e.g., Clean, comfortable & well-maintained premium accommodations"
+                                    ></textarea>
+                                </div>
+                            </div>
+
                             <div className="form-group full-width upload-group">
                                 <label>Package Image *</label>
                                 <div className="image-upload-wrapper">
@@ -584,7 +772,8 @@ const AdminPanel = () => {
                                             <h4>{pkgForm.title || 'Package Title'}</h4>
                                             <p><strong>Destination:</strong> {pkgForm.destination || 'N/A'}</p>
                                             <p><strong>Duration:</strong> {pkgForm.duration || 'N/A'}</p>
-                                            <p><strong>Price:</strong> ₹{Number(pkgForm.price || 0).toLocaleString('en-IN')}</p>
+                                            <p><strong>Semi-Sleeper:</strong> ₹{Number(pkgForm.semiSleeperPrice || 0).toLocaleString('en-IN')}</p>
+                                            <p><strong>Sleeper:</strong> ₹{Number(pkgForm.sleeperPrice || 0).toLocaleString('en-IN')}</p>
                                             {pkgForm.highlights && (
                                                 <div className="preview-highlights">
                                                     <strong>Highlights:</strong>
@@ -649,8 +838,15 @@ const AdminPanel = () => {
                                     <div className="meta-item">
                                         <BiStats />
                                         <div>
-                                            <span className="meta-label">Price</span>
-                                            <span className="meta-value price-highlight">₹{Number(previewPkg.price).toLocaleString('en-IN')}</span>
+                                            <span className="meta-label">Semi-Sleeper</span>
+                                            <span className="meta-value price-highlight">₹{Number(previewPkg.semiSleeperPrice || previewPkg.price || 0).toLocaleString('en-IN')}</span>
+                                        </div>
+                                    </div>
+                                    <div className="meta-item">
+                                        <BiStats />
+                                        <div>
+                                            <span className="meta-label">Sleeper</span>
+                                            <span className="meta-value price-highlight">₹{Number(previewPkg.sleeperPrice || 0).toLocaleString('en-IN')}</span>
                                         </div>
                                     </div>
                                 </div>

@@ -1,4 +1,4 @@
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaInstagram } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaInstagram, FaFacebook } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import logoImage from '../../assets/images/logo-bus.png';
 import './Footer.css';
@@ -31,6 +31,13 @@ const Footer = () => {
                                     rel="noopener noreferrer"
                                     aria-label="Instagram">
                                     <FaInstagram />
+                                </a>
+                                <a href="https://www.facebook.com/share/1G7Ev11TxR/"
+                                    className="social-link facebook"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Facebook">
+                                    <FaFacebook />
                                 </a>
                             </div>
                         </div>

@@ -7,12 +7,14 @@ export const packagesData = [
     {
         id: 101,
         title: "Kedarnath Dham Yatra",
-        
+
         destination: "Kedarnath, Uttarakhand",
         duration: "5 Days / 4 Nights",
         days: 5,
         nights: 4,
-        price: 18999,
+        price: 18999, // Base price (Semi-Sleeper)
+        sleeperPrice: 22999,
+        semiSleeperPrice: 18999,
         image: kedarnathImg,
         highlights: [
             "Kedarnath Temple darshan",
@@ -20,19 +22,32 @@ export const packagesData = [
             "Comfortable accommodation",
             "Experienced tour guide"
         ],
+        meals: {
+            breakfast: "Chai & Fresh Nashta",
+            lunch: "Pure Veg Meal",
+            dinner: "Pure Veg Meal",
+            description: "2 Times Pure Veg Meals + Morning Chai-Nashta"
+        },
+        accommodation: {
+            type: "Premium Hotels/Guesthouses",
+            description: "Clean, comfortable & well-maintained premium accommodations",
+            amenities: ["Clean Rooms", "Hot Water", "Comfortable Beds", "Safe Location"]
+        },
         description: "Embark on a spiritual journey to the sacred Kedarnath temple in the Himalayas.",
-        inclusions: ["Accommodation", "All meals", "Transfers", "Guide"],
+        inclusions: ["Premium Accommodation", "All Veg Meals", "Transfers", "Guide"],
         exclusions: ["Helicopter charges", "Personal expenses", "Donations"]
     },
     {
         id: 102,
         title: "Kashmir - Heaven on Earth",
-        
+
         destination: "Srinagar, Gulmarg, Pahalgam",
         duration: "6 Days / 5 Nights",
         days: 6,
         nights: 5,
-        price: 28999,
+        price: 28999, // Base price (Semi-Sleeper)
+        sleeperPrice: 32999,
+        semiSleeperPrice: 28999,
         image: kashmirImg,
         highlights: [
             "Houseboat stay on Dal Lake",
@@ -40,19 +55,32 @@ export const packagesData = [
             "Gulmarg gondola ride",
             "Mughal Gardens tour"
         ],
+        meals: {
+            breakfast: "Chai & Fresh Nashta",
+            lunch: "Pure Veg Meal",
+            dinner: "Pure Veg Meal",
+            description: "2 Times Pure Veg Meals + Morning Chai-Nashta"
+        },
+        accommodation: {
+            type: "Premium Hotels & Houseboats",
+            description: "Luxury houseboats on Dal Lake & premium hotels",
+            amenities: ["Lake View Rooms", "Hot Water", "Comfortable Beds", "Premium Facilities"]
+        },
         description: "Experience the breathtaking beauty of Kashmir with snow-capped mountains and serene valleys.",
-        inclusions: ["Accommodation", "Breakfast & Dinner", "Transfers", "Sightseeing"],
+        inclusions: ["Premium Accommodation", "All Veg Meals", "Transfers", "Sightseeing"],
         exclusions: ["Lunch", "Adventure activities", "Personal expenses"]
     },
     {
         id: 103,
         title: "South India Temple Tour",
-        
+
         destination: "Tamil Nadu & Karnataka",
         duration: "8 Days / 7 Nights",
         days: 8,
         nights: 7,
-        price: 26999,
+        price: 26999, // Base price (Semi-Sleeper)
+        sleeperPrice: 30999,
+        semiSleeperPrice: 26999,
         image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&h=600&fit=crop",
         highlights: [
             "Madurai Meenakshi Temple",
@@ -60,8 +88,19 @@ export const packagesData = [
             "Mysore Palace visit",
             "Traditional South Indian meals"
         ],
+        meals: {
+            breakfast: "Chai & Fresh Nashta",
+            lunch: "Pure Veg Meal",
+            dinner: "Pure Veg Meal",
+            description: "2 Times Pure Veg Meals + Morning Chai-Nashta"
+        },
+        accommodation: {
+            type: "Premium Hotels",
+            description: "Well-maintained premium hotels near temples",
+            amenities: ["Clean Rooms", "Hot Water", "Comfortable Beds", "Temple Proximity"]
+        },
         description: "Discover the rich temple heritage and culture of South India.",
-        inclusions: ["Accommodation", "All meals", "Transfers", "Guide"],
+        inclusions: ["Premium Accommodation", "All Veg Meals", "Transfers", "Guide"],
         exclusions: ["Entry fees", "Personal expenses", "Tips"]
     },
 
@@ -69,7 +108,7 @@ export const packagesData = [
     {
         id: 1,
         title: "Goa Beach Paradise",
-        
+
         destination: "Goa",
         duration: "4 Days / 3 Nights",
         days: 4,
@@ -89,7 +128,7 @@ export const packagesData = [
     {
         id: 2,
         title: "Kerala Backwaters",
-        
+
         destination: "Kerala",
         duration: "6 Days / 5 Nights",
         days: 6,
@@ -109,7 +148,7 @@ export const packagesData = [
     {
         id: 3,
         title: "Rajasthan Heritage Tour",
-        
+
         destination: "Rajasthan",
         duration: "7 Days / 6 Nights",
         days: 7,
@@ -129,7 +168,7 @@ export const packagesData = [
     {
         id: 4,
         title: "Shimla Manali Delight",
-        
+
         destination: "Himachal Pradesh",
         duration: "5 Days / 4 Nights",
         days: 5,
@@ -149,7 +188,7 @@ export const packagesData = [
     {
         id: 5,
         title: "Ladakh Adventure",
-        
+
         destination: "Ladakh",
         duration: "8 Days / 7 Nights",
         days: 8,
@@ -257,7 +296,7 @@ export const packagesData = [
     {
         id: 10,
         title: "Maldives Romance",
-        
+
         destination: "Maldives",
         duration: "5 Days / 4 Nights",
         days: 5,
@@ -277,7 +316,7 @@ export const packagesData = [
     {
         id: 11,
         title: "Kashmir Paradise",
-        
+
         destination: "Kashmir",
         duration: "6 Days / 5 Nights",
         days: 6,
@@ -297,7 +336,7 @@ export const packagesData = [
     {
         id: 12,
         title: "Mauritius Bliss",
-        
+
         destination: "Mauritius",
         duration: "7 Days / 6 Nights",
         days: 7,
@@ -319,7 +358,7 @@ export const packagesData = [
     {
         id: 13,
         title: "Char Dham Yatra",
-        
+
         destination: "Uttarakhand",
         duration: "10 Days / 9 Nights",
         days: 10,
@@ -339,7 +378,7 @@ export const packagesData = [
     {
         id: 14,
         title: "Vaishno Devi Darshan",
-        
+
         destination: "Jammu & Kashmir",
         duration: "3 Days / 2 Nights",
         days: 3,
@@ -359,7 +398,7 @@ export const packagesData = [
     {
         id: 15,
         title: "Tirupati Balaji",
-        
+
         destination: "Andhra Pradesh",
         duration: "2 Days / 1 Night",
         days: 2,
@@ -381,7 +420,7 @@ export const packagesData = [
     {
         id: 16,
         title: "Golden Triangle Tour",
-        
+
         destination: "Delhi, Agra, Jaipur",
         duration: "6 Days / 5 Nights",
         days: 6,
@@ -401,7 +440,7 @@ export const packagesData = [
     {
         id: 17,
         title: "South India Temple Tour",
-        
+
         destination: "Tamil Nadu & Karnataka",
         duration: "8 Days / 7 Nights",
         days: 8,
@@ -421,7 +460,7 @@ export const packagesData = [
     {
         id: 18,
         title: "Northeast Explorer",
-        
+
         destination: "Assam, Meghalaya, Sikkim",
         duration: "9 Days / 8 Nights",
         days: 9,

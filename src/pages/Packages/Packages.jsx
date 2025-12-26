@@ -69,7 +69,6 @@ const Packages = () => {
                             <div className="package-content">
                                 <div className="package-header">
                                     <h3 className="package-title">{pkg.title}</h3>
-                                    <span className="package-price">₹{pkg.price}</span>
                                 </div>
 
                                 <div className="package-destination">
@@ -77,8 +76,44 @@ const Packages = () => {
                                     <span>{pkg.destination}</span>
                                 </div>
 
+                                {/* Pricing Options */}
+                                {pkg.sleeperPrice && pkg.semiSleeperPrice && (
+                                    <div className="package-pricing">
+                                        <div className="pricing-option">
+                                            <span className="pricing-label">Semi-Sleeper</span>
+                                            <span className="pricing-value">₹{pkg.semiSleeperPrice}</span>
+                                        </div>
+                                        <div className="pricing-option">
+                                            <span className="pricing-label">Sleeper</span>
+                                            <span className="pricing-value">₹{pkg.sleeperPrice}</span>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Meals Information */}
+                                {pkg.meals && (
+                                    <div className="package-meals">
+                                        <h4 className="section-heading">🍽️ Meals Included</h4>
+                                        <p className="meals-description">{pkg.meals.description}</p>
+                                        <div className="meals-details">
+                                            <span>☕ {pkg.meals.breakfast}</span>
+                                            <span>🍛 {pkg.meals.lunch}</span>
+                                            {pkg.meals.dinner !== pkg.meals.lunch && <span>🍲 {pkg.meals.dinner}</span>}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Accommodation Information */}
+                                {pkg.accommodation && (
+                                    <div className="package-accommodation">
+                                        <h4 className="section-heading">🏨 Accommodation</h4>
+                                        <p className="accommodation-type">{pkg.accommodation.type}</p>
+                                        <p className="accommodation-description">{pkg.accommodation.description}</p>
+                                    </div>
+                                )}
+
                                 <ul className="package-highlights">
-                                    {(pkg.highlights || []).slice(0, 5).map((highlight, idx) => (
+                                    {(pkg.highlights || []).map((highlight, idx) => (
                                         <li key={idx}>
                                             <BiCheckCircle className="check-icon" />
                                             <span>{highlight}</span>
